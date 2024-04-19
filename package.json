@@ -11,7 +11,8 @@
   },
   "scripts": {
     "prettier:fix": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "test": "mocha --timeout 10000 test/*.spec.js"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -24,6 +25,9 @@
   },
   "peerDependencies": {
     "eslint": ">= 8.57.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.1.0"
   },
   "license": "MIT",
   "eslintConfig": {

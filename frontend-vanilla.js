@@ -12,5 +12,5 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   plugins: [],
-  rules: [],
+  rules: {},
 };
