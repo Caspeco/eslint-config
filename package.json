@@ -1,0 +1,28 @@
+{
+  "name": "@caspeco/eslint-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "homepage": "https://github.com/caspeco/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/caspeco/eslint-config/issues"
+  },
+  "repository": {
+    "url": "https://github.com/caspeco/eslint-config"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+		"@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.6"
+  },
+  "peerDependencies": {
+    "eslint": ">= 8.57.0"
+  },
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "."
+  },
+  "packageManager": "yarn@3.6.1"
+}
