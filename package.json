@@ -10,9 +10,9 @@
     "url": "https://github.com/caspeco/eslint-config"
   },
   "engines": {
-		"node": "20.11.x",
-		"npm": "^10.2.x"
-	},
+    "node": "20.11.x",
+    "npm": "^10.2.x"
+  },
   "scripts": {
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
