@@ -9,6 +9,10 @@
   "repository": {
     "url": "https://github.com/caspeco/eslint-config"
   },
+  "scripts": {
+    "prettier:fix": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",

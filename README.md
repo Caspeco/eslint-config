@@ -7,22 +7,21 @@ The provided configuration contains shared ESLint rules for typescript projects 
 ```js
 module.exports = {
   extends: "@caspeco",
-}
-
+};
 ```
 
 ### Frontend Vanilla
 
 ```js
 module.exports = {
-  extends: "@caspeco/eslint-config/frontend-vanilla"
-}
+  extends: "@caspeco/eslint-config/frontend-vanilla",
+};
 ```
 
 ### Frontend React
 
 ```js
 module.exports = {
-  extends: "@caspeco/eslint-config/frontend-react"
-}
+  extends: "@caspeco/eslint-config/frontend-react",
+};
 ```
