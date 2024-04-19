@@ -13,7 +13,6 @@ describe("validate frontend config", () => {
       });
 
       const result = await cli.lintFiles("./src/frontend.ts");
-      console.log(result[0].messages);
       assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
       assertHasEslintError(result, "no-var");
       assertHasEslintError(result, "prettier/prettier");
