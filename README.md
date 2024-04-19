@@ -25,3 +25,7 @@ module.exports = {
   extends: "@caspeco/eslint-config/frontend-react",
 };
 ```
+
+## Credit
+
+Based on the work of [Chainsafe: eslint-config](https://github.com/ChainSafe/eslint-config)
