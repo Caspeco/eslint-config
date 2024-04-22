@@ -4,26 +4,42 @@
 
 The provided configuration contains shared ESLint rules for typescript projects across Caspeco. To use this configuration you'll need `.eslintrc.js` file in your project root with the following content:
 
-```js
-module.exports = {
-  extends: "@caspeco",
-};
+```diff
+// .eslintrc.js
++ module.exports = {
++   extends: "@caspeco",
++ };
 ```
 
 ### Frontend Vanilla
 
-```js
-module.exports = {
-  extends: "@caspeco/eslint-config/frontend-vanilla",
-};
+Uses the rules defined in [frontend-vanilla.js](frontend-vanilla.js). 
+
+```diff
+// .eslintrc.js
++ module.exports = {
++   extends: "@caspeco/eslint-config/frontend-vanilla",
++ };
 ```
 
 ### Frontend React
 
-```js
-module.exports = {
-  extends: "@caspeco/eslint-config/frontend-react",
-};
+Uses the rules defined in [frontend-react.js](frontend-react.js). It's also combined with the rules from [frontend-vanilla.js](frontend-vanilla.js). 
+
+```diff
+// .eslintrc.js
++ module.exports = {
++   extends: "@caspeco/eslint-config/frontend-react",
++ };
+```
+
+## Contributing
+
+### Tests
+
+```bash
+npm install
+npm run test
 ```
 
 ## Credit
