@@ -1,0 +1,27 @@
+name: 🚀 Release
+concurrency: prod
+on:
+  release:
+    types:
+      - released
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Notify
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mattermost/action-mattermost-notify@master
+        with:
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+          TEXT: |
+            New version of Caspecos eslint-config was published. New version: ${{ github.event.release.tag_name }}.
+            Author: ${{ github.event.release.author.login }}
+
+            [Release details](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }})
+
+            Changelog:
+            ${{ github.event.release.body }}
