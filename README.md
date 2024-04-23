@@ -13,7 +13,7 @@ The provided configuration contains shared ESLint rules for typescript projects 
 
 ### Frontend Vanilla
 
-Uses the rules defined in [frontend-vanilla.js](frontend-vanilla.js). 
+Uses the rules defined in [frontend-vanilla.js](frontend-vanilla.js).
 
 ```diff
 // .eslintrc.js
@@ -24,7 +24,7 @@ Uses the rules defined in [frontend-vanilla.js](frontend-vanilla.js).
 
 ### Frontend React
 
-Uses the rules defined in [frontend-react.js](frontend-react.js). It's also combined with the rules from [frontend-vanilla.js](frontend-vanilla.js). 
+Uses the rules defined in [frontend-react.js](frontend-react.js). It's also combined with the rules from [frontend-vanilla.js](frontend-vanilla.js).
 
 ```diff
 // .eslintrc.js

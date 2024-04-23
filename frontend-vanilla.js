@@ -16,17 +16,17 @@ module.exports = {
     "check-file/filename-naming-convention": [
       "error",
       {
-        "**/*.{js,ts,tsx}": "KEBAB_CASE"
+        "**/*.{js,ts,tsx}": "KEBAB_CASE",
       },
       {
-        "ignoreMiddleExtensions": true
-      }
+        ignoreMiddleExtensions: true,
+      },
     ],
     "check-file/folder-naming-convention": [
       "error",
       {
-        "src/**/": "KEBAB_CASE"
-      }
-    ]
+        "src/**/": "KEBAB_CASE",
+      },
+    ],
   },
 };

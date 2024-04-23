@@ -17,5 +17,15 @@ describe("validate frontend config", () => {
       assertHasEslintError(result, "no-var");
       assertHasEslintError(result, "prettier/prettier");
     });
+
+    it("validates invalid file name rule", async function async() {
+      const cli = new eslint.ESLint({
+        useEslintrc: false,
+        baseConfig: eslintrcFrontend,
+      });
+
+      const result = await cli.lintFiles("./src/invalidFileName.ts");
+      assertHasEslintError(result, "check-file/filename-naming-convention");
+    });
   });
 });
