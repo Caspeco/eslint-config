@@ -11,6 +11,22 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
-  plugins: [],
-  rules: {},
+  plugins: ["check-file"],
+  rules: {
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{js,ts,tsx}": "KEBAB_CASE",
+      },
+      {
+        ignoreMiddleExtensions: true,
+      },
+    ],
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/**/": "KEBAB_CASE",
+      },
+    ],
+  },
 };
