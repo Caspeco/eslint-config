@@ -16,7 +16,7 @@ module.exports = {
     "check-file/filename-naming-convention": [
       "error",
       {
-        "**/*.{js,ts}": "KEBAB_CASE"
+        "**/*.{js,ts,tsx}": "KEBAB_CASE"
       },
       {
         "ignoreMiddleExtensions": true
