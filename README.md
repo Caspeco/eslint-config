@@ -35,6 +35,10 @@ Uses the rules defined in [frontend-react.js](frontend-react.js). It's also comb
 
 ## Contributing
 
+- Create a PAT (Classic) on Github with the scope "Packages: Read".
+- Set an environment variable locally named `GPR_PRIVATE_READ_TOKEN` to the PAT created
+- Run `npm install`
+
 ### Tests
 
 ```bash
