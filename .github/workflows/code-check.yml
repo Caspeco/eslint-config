@@ -31,3 +31,6 @@ jobs:
 
       - name: Tests
         run: npm run ci-test
+
+      - name: Formatting
+        run: npm run prettier:check
