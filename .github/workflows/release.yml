@@ -32,7 +32,7 @@ jobs:
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
 
-      - run: npm whoami; npm --ignore-scripts publish
+      - run: npm --ignore-scripts publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
