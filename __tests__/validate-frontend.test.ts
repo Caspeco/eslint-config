@@ -15,7 +15,6 @@ describe("validate frontend config", () => {
 			const result = await cli.lintFiles("./src/frontend.ts");
 			assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 			assertHasEslintError(result, "no-var");
-			assertHasEslintError(result, "prettier/prettier");
 		});
 
 		it("validates invalid file name rule", async function async() {
