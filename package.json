@@ -36,6 +36,10 @@
     "vitest": "^1.5.0"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@caspeco:registry": "https://npm.pkg.github.com"
+  },
   "eslintConfig": {
     "extends": "."
   }

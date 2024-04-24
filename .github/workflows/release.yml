@@ -9,8 +9,36 @@ permissions:
   contents: read
 
 jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read node and npm versions from package.json
+        uses: skjnldsv/read-package-engines-version-actions@v3
+        id: package-engines-versions
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.package-engines-versions.outputs.nodeVersion }}
+          registry-url: https://npm.pkg.github.com/
+
+      - run: npm ci
+
+      - run: npm version ${TAG_NAME} --git-tag-version=false
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+
+      - run: npm whoami; npm --ignore-scripts publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   notify:
     name: Notify
+    needs: publish-gpr
     if: ${{ !github.event.release.prerelease }}
     runs-on: ubuntu-latest
     steps:
