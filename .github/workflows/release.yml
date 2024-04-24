@@ -27,6 +27,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
 
       - run: npm ci
+        env:
+          GPR_PRIVATE_READ_TOKEN: ${{ secrets.GPR_PRIVATE_READ_TOKEN }}
 
       - run: npm version ${TAG_NAME} --git-tag-version=false
         env:
