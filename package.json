@@ -20,7 +20,7 @@
 		"ci-test": "CI=true vitest"
 	},
 	"peerDependencies": {
-		"eslint": ">= 9"
+		"eslint": ">=8"
 	},
 	"dependencies": {
 		"@types/eslint": "^8.56.10",
