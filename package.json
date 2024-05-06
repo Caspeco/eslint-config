@@ -33,7 +33,7 @@
 	"devDependencies": {
 		"@caspeco/prettier-config": "1.0.4",
 		"vite": "^5.2.10",
-		"vitest": "^1.5.2"
+		"vitest": "^1.6.0"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"license": "MIT",
