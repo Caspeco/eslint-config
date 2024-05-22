@@ -2,6 +2,10 @@
 
 ## Usage
 
+```bash
+npm i @caspeco/eslint-config
+```
+
 The provided configuration contains shared ESLint rules for typescript projects across Caspeco. To use this configuration you'll need `.eslintrc.js` file in your project root with the following content:
 
 ```diff
