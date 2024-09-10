@@ -1,12 +1,12 @@
-const tseslint = require("typescript-eslint");
-const eslint = require("@eslint/js");
-const checkFile = require("eslint-plugin-check-file");
-const eslintConfigPrettier = require("eslint-config-prettier");
+import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
+import { configs as eslintConfig } from "@eslint/js";
+import checkFile from "eslint-plugin-check-file";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
-	eslint.configs.recommended,
-	...tseslint.configs.recommended,
+	eslintConfig.recommended,
+	...typescriptEslintConfig.recommended,
 	{
 		files: ["**/*.ts", "**/*.tsx"],
 		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
@@ -14,11 +14,11 @@ const flatConfig = [
 			reportUnusedDisableDirectives: "warn",
 		},
 		languageOptions: {
-			parser: tseslint.parser,
+			parser: parser,
 			sourceType: "module",
 		},
 		plugins: {
-			"@typescript-eslint": tseslint.plugin,
+			"@typescript-eslint": plugin,
 			"check-file": checkFile,
 		},
 		rules: {
@@ -42,4 +42,4 @@ const flatConfig = [
 	eslintConfigPrettier,
 ];
 
-module.exports = flatConfig;
+export default flatConfig;

@@ -1,4 +1,4 @@
-const vanilla = require("./frontend-vanilla");
-const react = require("./frontend-react");
+import vanilla from './frontend-vanilla';
+import react from './frontend-react';
 
 export { vanilla, react };

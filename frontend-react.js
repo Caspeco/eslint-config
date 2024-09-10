@@ -1,5 +1,5 @@
-const frontendVanilla = require("./frontend-vanilla");
-const reactRefresh = require("eslint-plugin-react-refresh");
+import frontendVanilla from "./frontend-vanilla";
+import reactRefresh from "eslint-plugin-react-refresh";
 
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
@@ -15,4 +15,4 @@ const flatConfig = [
 	},
 ];
 
-module.exports = flatConfig;
+export default flatConfig;
