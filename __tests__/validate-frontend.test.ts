@@ -1,29 +1,28 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
-import eslintrcFrontend from "../frontend-vanilla";
-
+import frontendVanilla from "../src/frontend-vanilla";
 import { assertHasEslintError } from "./helper";
 
 describe("validate frontend config", () => {
 	describe("vanilla", () => {
 		it("load config in eslint to validate all rule syntax is correct", async function async() {
 			const cli = new eslint.ESLint({
-				useEslintrc: false,
-				baseConfig: eslintrcFrontend,
+				overrideConfig: frontendVanilla,
+				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/frontend.ts");
+			const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
 			assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 			assertHasEslintError(result, "no-var");
 		});
 
 		it("validates invalid file name rule", async function async() {
 			const cli = new eslint.ESLint({
-				useEslintrc: false,
-				baseConfig: eslintrcFrontend,
+				overrideConfig: frontendVanilla,
+				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/invalidFileName.ts");
+			const result = await cli.lintFiles("__tests__/fixtures/vanilla/invalidFileName.ts");
 			assertHasEslintError(result, "check-file/filename-naming-convention");
 		});
 	});
