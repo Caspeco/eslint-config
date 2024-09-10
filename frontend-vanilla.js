@@ -8,6 +8,8 @@ const flatConfig = [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['**/*.d.ts', '**/dist/**/*', '**/node_modules/**/*'],
     linterOptions: {
       reportUnusedDisableDirectives: 'warn'
     },
@@ -15,8 +17,6 @@ const flatConfig = [
       parser: tseslint.parser,
       sourceType: 'module'
     },
-    files: ['**/*.ts'],
-    ignores: ['**/*.d.ts', '**/dist/**/*', '**/node_modules/**/*'],
     plugins: {
       '@typescript-eslint': tseslint.plugin,
       'check-file': checkFile,
