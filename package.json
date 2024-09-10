@@ -29,8 +29,7 @@
 		"eslint-plugin-check-file": ">= 2.8.0",
 		"@eslint/js": ">= 9"
 	},
-	"dependencies": {
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@caspeco/prettier-config": "1.0.4",
 		"vite": "5.4.3",
