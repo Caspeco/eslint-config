@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
-import frontendReact from "../frontend-react";
+import frontendReact from "../src/frontend-react";
 import { assertHasEslintError } from "./helper";
 
 describe("validate frontend config", () => {
@@ -11,7 +11,7 @@ describe("validate frontend config", () => {
 				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/react-hooks.tsx");
+			const result = await cli.lintFiles("__tests__/fixtures/react/react-hooks.tsx");
 			assertHasEslintError(result, "react-hooks/exhaustive-deps");
 		});
 
@@ -21,7 +21,7 @@ describe("validate frontend config", () => {
 				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/react-refresh.tsx");
+			const result = await cli.lintFiles("__tests__/fixtures/react/react-refresh.tsx");
 			assertHasEslintError(result, "react-refresh/only-export-components");
 		});
 	});

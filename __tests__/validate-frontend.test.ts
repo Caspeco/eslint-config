@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
-import frontendVanilla from "../frontend-vanilla";
+import frontendVanilla from "../src/frontend-vanilla";
 import { assertHasEslintError } from "./helper";
 
 describe("validate frontend config", () => {
@@ -11,7 +11,7 @@ describe("validate frontend config", () => {
 				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/frontend.ts");
+			const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
 			assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 			assertHasEslintError(result, "no-var");
 		});
@@ -22,7 +22,7 @@ describe("validate frontend config", () => {
 				overrideConfigFile: true,
 			});
 
-			const result = await cli.lintFiles("./src/invalidFileName.ts");
+			const result = await cli.lintFiles("__tests__/fixtures/vanilla/invalidFileName.ts");
 			assertHasEslintError(result, "check-file/filename-naming-convention");
 		});
 	});
