@@ -7,7 +7,7 @@ The provided configuration contains shared ESLint rules for typescript projects 
 ### Frontend Vanilla
 
 ```bash
-npm install --save-dev @caspeco/eslint-config eslint@^9 typescript-eslint@^8 @typescript-eslint/parser@^8 @typescript-eslint/eslint-plugin@^8 eslint-config-prettier@^9 eslint-plugin-check-file@^2.8.0 @eslint/js@^9
+npm install --save-dev @caspeco/eslint-config
 ```
 
 To use this configuration you'll need `eslint.config.js` file in your project root with the following content (for example):
@@ -26,7 +26,7 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 ### Frontend React
 
 ```bash
-npm install --save-dev @caspeco/eslint-config eslint@^9 typescript-eslint@^8 @typescript-eslint/parser@^8 @typescript-eslint/eslint-plugin@^8 eslint-config-prettier@^9 eslint-plugin-check-file@^2.8.0 @eslint/js@^9 eslint-plugin-react-refresh
+npm install --save-dev @caspeco/eslint-config eslint-plugin-react-refresh
 ```
 
 To use this configuration you'll need `eslint.config.js` file in your project root with the following content (for example):
