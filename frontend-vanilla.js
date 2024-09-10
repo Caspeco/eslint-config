@@ -1,11 +1,11 @@
 import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
-import { configs as eslintConfig } from "@eslint/js";
+import js from "@eslint/js";
 import checkFile from "eslint-plugin-check-file";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
-	eslintConfig.recommended,
+	js.configs.recommended,
 	...typescriptEslintConfig.recommended,
 	{
 		files: ["**/*.ts", "**/*.tsx"],

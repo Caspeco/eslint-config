@@ -1,4 +1,4 @@
-import frontendVanilla from "./frontend-vanilla";
+import frontendVanilla from "./frontend-vanilla.js";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 /** @type {import('eslint').Linter.Config[]} */
