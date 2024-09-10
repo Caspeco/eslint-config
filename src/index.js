@@ -1,4 +1,4 @@
-import vanilla from "./frontend-vanilla.js";
-import react from "./frontend-react.js";
+import vanillaConfig from "./frontend-vanilla.js";
+import reactConfig from "./frontend-react.js";
 
-export { vanilla, react };
+export { vanillaConfig, reactConfig };
