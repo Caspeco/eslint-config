@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
-	"version": "2.0.0-alpha.4",
+	"version": "2.0.0-alpha.5",
 	"main": "src/index.js",
 	"type": "module",
 	"homepage": "https://github.com/caspeco/eslint-config#readme",

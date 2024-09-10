@@ -6,13 +6,17 @@
 npm install --save-dev @caspeco/eslint-config eslint@^9 typescript-eslint@^8 @typescript-eslint/parser@^8 @typescript-eslint/eslint-plugin@^8 eslint-config-prettier@^9 eslint-plugin-check-file@^2.8.0 @eslint/js@^9
 ```
 
-The provided configuration contains shared ESLint rules for typescript projects across Caspeco. To use this configuration you'll need `.eslintrc.js` file in your project root with the following content:
+The provided configuration contains shared ESLint rules for typescript projects across Caspeco. To use this configuration you'll need `eslint.config.js` file in your project root with the following content (for example):
 
 ```diff
-// .eslintrc.js
-+ module.exports = {
-+   extends: "@caspeco",
-+ };
++ import { reactConfig } from "@caspeco/eslint-config";
++
++ const config = [
++ 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++ 	...reactConfig,
++ ];
++
++ export default config;
 ```
 
 ### Frontend Vanilla
@@ -20,21 +24,14 @@ The provided configuration contains shared ESLint rules for typescript projects 
 Uses the rules defined in [frontend-vanilla.js](frontend-vanilla.js).
 
 ```diff
-// .eslintrc.js
-+ module.exports = {
-+   extends: "@caspeco/eslint-config/frontend-vanilla",
-+ };
-```
-
-### Frontend React
-
-Uses the rules defined in [frontend-react.js](frontend-react.js). It's also combined with the rules from [frontend-vanilla.js](frontend-vanilla.js).
-
-```diff
-// .eslintrc.js
-+ module.exports = {
-+   extends: "@caspeco/eslint-config/frontend-react",
-+ };
++ import { vanillaConfig } from "@caspeco/eslint-config";
++
++ const config = [
++ 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++ 	...vanillaConfig,
++ ];
++
++ export default config;
 ```
 
 ## Contributing
