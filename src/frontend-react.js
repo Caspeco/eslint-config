@@ -6,6 +6,7 @@ import reactPlugin from "eslint-plugin-react";
 const flatConfig = [
 	...frontendVanilla,
 	reactPlugin.configs.flat.recommended,
+	reactPlugin.configs.flat["jsx-runtime"],
 	{
 		files: ["**/*.tsx", "**/*.jsx"],
 		plugins: {
@@ -13,6 +14,8 @@ const flatConfig = [
 		},
 		rules: {
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+			"react/react-in-jsx-scope": "off",
+			"react/prop-types": "off",
 		},
 	},
 ];
