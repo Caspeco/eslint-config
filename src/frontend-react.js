@@ -5,8 +5,16 @@ import reactPlugin from "eslint-plugin-react";
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
 	...frontendVanilla,
-	reactPlugin.configs.flat.recommended,
-	reactPlugin.configs.flat["jsx-runtime"],
+	{
+		files: ["**/*.tsx", "**/*.jsx"],
+		...reactPlugin.configs.flat["jsx-runtime"],
+		...reactPlugin.configs.flat.recommended,
+		settings: {
+			react: {
+				version: "detect",
+			},
+		},
+	},
 	{
 		files: ["**/*.tsx", "**/*.jsx"],
 		plugins: {
