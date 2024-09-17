@@ -6,7 +6,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
 	js.configs.recommended,
-	...typescriptEslintConfig.recommended,
+	...typescriptEslintConfig.recommendedTypeChecked,
 	{
 		files: ["**/*.ts", "**/*.tsx"],
 		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
@@ -22,7 +22,6 @@ const flatConfig = [
 			"check-file": checkFile,
 		},
 		rules: {
-			"@typescript-eslint/no-unsafe-assignment": "error",
 			"check-file/filename-naming-convention": [
 				"error",
 				{
