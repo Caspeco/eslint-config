@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
-import frontendVanilla from "../src/frontend-vanilla";
+import frontendVanilla from "./fixtures/vanilla/eslint.config";
 import { assertHasEslintError } from "./helper";
 
 describe("validate frontend config", () => {
@@ -13,6 +13,7 @@ describe("validate frontend config", () => {
 
 			const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
 			assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
+			assertHasEslintError(result, "@typescript-eslint/no-unsafe-assignment");
 			assertHasEslintError(result, "no-var");
 		});
 

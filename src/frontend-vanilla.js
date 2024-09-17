@@ -6,7 +6,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
 	js.configs.recommended,
-	...typescriptEslintConfig.recommended,
+	...typescriptEslintConfig.recommendedTypeChecked,
 	{
 		files: ["**/*.ts", "**/*.tsx"],
 		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
