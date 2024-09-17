@@ -1,9 +1,9 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
-import frontendReact from "../src/frontend-react";
+import frontendReact from "./fixtures/react/eslint.config";
 import { assertHasEslintError } from "./helper";
 
-describe("validate frontend config", () => {
+describe("validate react config", () => {
 	describe("vanilla", () => {
 		it.skip("validates hooks rules", async function async() {
 			const cli = new eslint.ESLint({

@@ -17,6 +17,15 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 +
 + const config = [
 + 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++   {
++     files: ['**/*.ts', '**/*.tsx'],
++       languageOptions: {
++       parserOptions: {
++         project: true,
++         tsconfigRootDir: import.meta.dirname,
++       },
++     },
++   },
 + 	...vanillaConfig,
 + ];
 +
@@ -36,6 +45,15 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 +
 + const config = [
 + 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++   {
++     files: ['**/*.ts', '**/*.tsx'],
++       languageOptions: {
++       parserOptions: {
++         project: true,
++         tsconfigRootDir: import.meta.dirname,
++       },
++     },
++   },
 + 	...reactConfig,
 + ];
 +

@@ -22,6 +22,7 @@ const flatConfig = [
 			"check-file": checkFile,
 		},
 		rules: {
+			"@typescript-eslint/no-unsafe-assignment": "error",
 			"check-file/filename-naming-convention": [
 				"error",
 				{
