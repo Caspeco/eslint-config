@@ -8,6 +8,14 @@ const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
 	{
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.name,
+			},
+		},
+	},
+	{
 		files: ["**/*.ts", "**/*.tsx"],
 		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
 		linterOptions: {
