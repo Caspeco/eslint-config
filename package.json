@@ -46,7 +46,7 @@
 	},
 	"optionalDependencies": {
 		"eslint-plugin-react-refresh": ">= 0.4.12",
-		"@rollup/rollup-linux-x64-gnu": "4.21.3"
+		"@rollup/rollup-linux-x64-gnu": "4.22.4"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"license": "MIT",
