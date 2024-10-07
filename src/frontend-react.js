@@ -1,6 +1,7 @@
 import frontendVanilla from "./frontend-vanilla.js";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
@@ -19,8 +20,10 @@ const flatConfig = [
 		files: ["**/*.tsx", "**/*.jsx"],
 		plugins: {
 			"react-refresh": reactRefresh,
+			"react-hooks": reactHooksPlugin,
 		},
 		rules: {
+			...reactHooksPlugin.configs.recommended.rules,
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 			"react/react-in-jsx-scope": "off",
 			"react/prop-types": "off",

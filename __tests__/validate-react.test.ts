@@ -5,13 +5,23 @@ import { assertHasEslintError } from "./helper";
 
 describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
-		it.skip("validates hooks rules", async function async() {
+		it("validates hooks rules, react-hooks/rules-of-hooks", async function async() {
 			const cli = new eslint.ESLint({
 				overrideConfig: frontendReact,
 				overrideConfigFile: true,
 			});
 
 			const result = await cli.lintFiles("__tests__/fixtures/react/react-hooks.tsx");
+			assertHasEslintError(result, "react-hooks/rules-of-hooks");
+		});
+
+		it("validates hooks rules, react-hooks/exhaustive-deps", async function async() {
+			const cli = new eslint.ESLint({
+				overrideConfig: frontendReact,
+				overrideConfigFile: true,
+			});
+
+			const result = await cli.lintFiles("__tests__/fixtures/react/react-hooks-2.tsx");
 			assertHasEslintError(result, "react-hooks/exhaustive-deps");
 		});
 	});

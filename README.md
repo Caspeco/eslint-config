@@ -26,7 +26,7 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 ### Frontend React
 
 ```bash
-npm install --save-dev @caspeco/eslint-config eslint-plugin-react-refresh
+npm install --save-dev @caspeco/eslint-config eslint-plugin-react-refresh eslint-plugin-react-hooks eslint-plugin-react
 ```
 
 To use this configuration you'll need `eslint.config.js` file in your project root with the following content (for example):
@@ -41,6 +41,14 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 +
 + export default config;
 ```
+
+#### What is included in the React configuration?
+
+- [eslint-react-plugin](https://github.com/jsx-eslint/eslint-plugin-react)
+- [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh)
+- [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
+For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/blob/main/src/frontend-react.js).
 
 ## Contributing
 
