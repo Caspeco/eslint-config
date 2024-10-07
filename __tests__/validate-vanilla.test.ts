@@ -4,7 +4,7 @@ import frontendVanilla from "./fixtures/vanilla/eslint.config";
 import { assertHasEslintError } from "./helper";
 
 describe("validate frontend config", () => {
-	describe("vanilla", () => {
+	describe("general rules", () => {
 		it("load config in eslint to validate all rule syntax is correct", async function async() {
 			const cli = new eslint.ESLint({
 				overrideConfig: frontendVanilla,
@@ -16,8 +16,9 @@ describe("validate frontend config", () => {
 			assertHasEslintError(result, "@typescript-eslint/no-unsafe-assignment");
 			assertHasEslintError(result, "no-var");
 		});
-
-		it("validates invalid file name rule", async function async() {
+	});
+	describe("check-file plugin", () => {
+		it("validates check-file/filename-naming-convention", async function async() {
 			const cli = new eslint.ESLint({
 				overrideConfig: frontendVanilla,
 				overrideConfigFile: true,
