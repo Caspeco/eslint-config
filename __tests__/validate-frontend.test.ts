@@ -26,5 +26,15 @@ describe("validate frontend config", () => {
 			const result = await cli.lintFiles("__tests__/fixtures/vanilla/invalidFileName.ts");
 			assertHasEslintError(result, "check-file/filename-naming-convention");
 		});
+
+		it("validates restricted imports", async function async() {
+			const cli = new eslint.ESLint({
+				overrideConfig: frontendVanilla,
+				overrideConfigFile: true,
+			});
+
+			const result = await cli.lintFiles("__tests__/fixtures/vanilla/restricted-imports.ts");
+			assertHasEslintError(result, "no-restricted-imports");
+		});
 	});
 });
