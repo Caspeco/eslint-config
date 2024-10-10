@@ -45,10 +45,10 @@ const flatConfig = [
 					"src/**/": "KEBAB_CASE",
 				},
 			],
-			'no-restricted-imports': [
-				'error',
+			"no-restricted-imports": [
+				"error",
 				{
-					patterns: ['@chakra-ui/**'],
+					patterns: ["@chakra-ui/**"],
 				},
 			],
 		},
