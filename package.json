@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
-	"version": "3.0.0-alpha.0",
+	"version": "3.0.0-alpha.1",
 	"main": "src/index.js",
 	"type": "module",
 	"homepage": "https://github.com/caspeco/eslint-config#readme",
@@ -39,8 +39,10 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-check-file": "2.8.0",
 		"eslint-plugin-react": "^7.35.2",
+		"eslint-plugin-react-hooks": "^5.0.0",
 		"eslint-plugin-react-refresh": "^0.4.11",
-		"eslint-plugin-react-hooks": "^5.1.0-rc-1460d67c-20241003",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"typescript-eslint": "^8.5.0",
 		"vite": "5.4.8",
 		"vitest": "^2.1.2"
@@ -48,8 +50,8 @@
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": "4.21.3",
 		"eslint-plugin-react": "^7.35.2",
-		"eslint-plugin-react-refresh": ">= 0.4.12",
-		"eslint-plugin-react-hooks": "^5.1.0-rc-1460d67c-20241003"
+		"eslint-plugin-react-hooks": ">= 5.0.0",
+		"eslint-plugin-react-refresh": ">= 0.4.12"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"license": "MIT",
