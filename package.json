@@ -20,7 +20,6 @@
 		"test": "vitest",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
 		"verify-package-sort-order:fix": "sort-package-json 'package.json'",
-
 		"ci-test": "CI=true vitest"
 	},
 	"peerDependencies": {
