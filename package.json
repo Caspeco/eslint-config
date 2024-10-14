@@ -1,8 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
 	"version": "3.0.0-alpha.1",
-	"main": "src/index.js",
-	"type": "module",
 	"homepage": "https://github.com/caspeco/eslint-config#readme",
 	"bugs": {
 		"url": "https://github.com/caspeco/eslint-config/issues"
@@ -10,24 +8,18 @@
 	"repository": {
 		"url": "https://github.com/caspeco/eslint-config"
 	},
-	"engines": {
-		"node": ">=20",
-		"npm": ">=9"
-	},
+	"license": "MIT",
+	"type": "module",
+	"main": "src/index.js",
 	"scripts": {
-		"prettier:fix": "prettier --write .",
+		"ci-test": "CI=true vitest",
 		"prettier:check": "prettier --check .",
-		"test": "vitest",
-		"ci-test": "CI=true vitest"
+		"prettier:fix": "prettier --write .",
+		"test": "vitest"
 	},
-	"peerDependencies": {
-		"@eslint/js": ">= 9",
-		"@typescript-eslint/eslint-plugin": ">= 8",
-		"@typescript-eslint/parser": ">= 8",
-		"eslint": ">= 9",
-		"eslint-config-prettier": ">= 9",
-		"eslint-plugin-check-file": ">= 2.8.0",
-		"typescript-eslint": ">= 8"
+	"prettier": "@caspeco/prettier-config",
+	"eslintConfig": {
+		"extends": "."
 	},
 	"devDependencies": {
 		"@caspeco/prettier-config": "1.0.6",
@@ -47,18 +39,26 @@
 		"vite": "5.4.8",
 		"vitest": "^2.1.2"
 	},
+	"peerDependencies": {
+		"@eslint/js": ">= 9",
+		"@typescript-eslint/eslint-plugin": ">= 8",
+		"@typescript-eslint/parser": ">= 8",
+		"eslint": ">= 9",
+		"eslint-config-prettier": ">= 9",
+		"eslint-plugin-check-file": ">= 2.8.0",
+		"typescript-eslint": ">= 8"
+	},
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": "4.21.3",
 		"eslint-plugin-react": "^7.35.2",
 		"eslint-plugin-react-hooks": ">= 5.0.0",
 		"eslint-plugin-react-refresh": ">= 0.4.12"
 	},
-	"prettier": "@caspeco/prettier-config",
-	"license": "MIT",
+	"engines": {
+		"node": ">=20",
+		"npm": ">=9"
+	},
 	"publishConfig": {
 		"access": "public"
-	},
-	"eslintConfig": {
-		"extends": "."
 	}
 }
