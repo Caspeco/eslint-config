@@ -15,7 +15,9 @@
 		"ci-test": "CI=true vitest",
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
-		"test": "vitest"
+		"test": "vitest",
+		"verify-package-sort-order": "sort-package-json 'package.json' --check",
+		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"eslintConfig": {
@@ -32,10 +34,11 @@
 		"eslint-plugin-check-file": "2.8.0",
 		"eslint-plugin-react": "^7.35.2",
 		"eslint-plugin-react-hooks": "^5.0.0",
-		"eslint-plugin-react-refresh": "^0.4.11",
+		"eslint-plugin-react-refresh": "^0.4.12",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"typescript-eslint": "^8.5.0",
+		"sort-package-json": "^2.10.1",
+		"typescript-eslint": "^8.8.1",
 		"vite": "5.4.8",
 		"vitest": "^2.1.2"
 	},
@@ -49,7 +52,7 @@
 		"typescript-eslint": ">= 8"
 	},
 	"optionalDependencies": {
-		"@rollup/rollup-linux-x64-gnu": "4.21.3",
+		"@rollup/rollup-linux-x64-gnu": "4.24.0",
 		"eslint-plugin-react": "^7.35.2",
 		"eslint-plugin-react-hooks": ">= 5.0.0",
 		"eslint-plugin-react-refresh": ">= 0.4.12"
