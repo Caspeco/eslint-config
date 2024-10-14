@@ -45,12 +45,6 @@ const flatConfig = [
 					"src/**/": "KEBAB_CASE",
 				},
 			],
-			"no-restricted-imports": [
-				"error",
-				{
-					patterns: ["@chakra-ui/**"],
-				},
-			],
 		},
 	},
 	eslintConfigPrettier,
