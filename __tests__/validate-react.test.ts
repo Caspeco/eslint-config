@@ -36,6 +36,16 @@ describe("validate react config", () => {
 			const result = await cli.lintFiles("__tests__/fixtures/react/react-refresh.tsx");
 			assertHasEslintError(result, "react-refresh/only-export-components");
 		});
+
+		it("validates restricted imports", async function async() {
+			const cli = new eslint.ESLint({
+				overrideConfig: frontendReact,
+				overrideConfigFile: true,
+			});
+
+			const result = await cli.lintFiles("__tests__/fixtures/react/restricted-imports.tsx");
+			assertHasEslintError(result, "no-restricted-imports");
+		});
 	});
 	describe("react plugin", () => {
 		it("validates react/no-find-dom-node", async function async() {
