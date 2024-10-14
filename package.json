@@ -1,8 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
 	"version": "2.0.0",
-	"main": "src/index.js",
-	"type": "module",
 	"homepage": "https://github.com/caspeco/eslint-config#readme",
 	"bugs": {
 		"url": "https://github.com/caspeco/eslint-config/issues"
@@ -10,30 +8,23 @@
 	"repository": {
 		"url": "https://github.com/caspeco/eslint-config"
 	},
-	"engines": {
-		"node": ">=20",
-		"npm": ">=9"
-	},
+	"license": "MIT",
+	"type": "module",
+	"main": "src/index.js",
 	"scripts": {
-		"prettier:fix": "prettier --write .",
+		"ci-test": "CI=true vitest",
 		"prettier:check": "prettier --check .",
+		"prettier:fix": "prettier --write .",
 		"test": "vitest",
-		"ci-test": "CI=true vitest"
+		"verify-package-sort-order": "sort-package-json 'package.json' --check",
+		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},
-	"peerDependencies": {
-		"eslint": ">= 9",
-		"typescript-eslint": ">= 8",
-		"@typescript-eslint/parser": ">= 8",
-		"@typescript-eslint/eslint-plugin": ">= 8",
-		"eslint-config-prettier": ">= 9",
-		"eslint-plugin-check-file": ">= 2.8.0",
-		"@eslint/js": ">= 9"
+	"prettier": "@caspeco/prettier-config",
+	"eslintConfig": {
+		"extends": "."
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@caspeco/prettier-config": "1.0.6",
-		"vite": "5.4.8",
-		"vitest": "^2.1.2",
 		"@eslint/js": "^9.12.0",
 		"@types/eslint": "9.6.1",
 		"@typescript-eslint/eslint-plugin": "8.8.1",
@@ -42,18 +33,29 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-check-file": "2.8.0",
 		"eslint-plugin-react-refresh": "^0.4.12",
-		"typescript-eslint": "^8.8.1"
+		"sort-package-json": "^2.10.1",
+		"typescript-eslint": "^8.8.1",
+		"vite": "5.4.8",
+		"vitest": "^2.1.2"
+	},
+	"peerDependencies": {
+		"@eslint/js": ">= 9",
+		"@typescript-eslint/eslint-plugin": ">= 8",
+		"@typescript-eslint/parser": ">= 8",
+		"eslint": ">= 9",
+		"eslint-config-prettier": ">= 9",
+		"eslint-plugin-check-file": ">= 2.8.0",
+		"typescript-eslint": ">= 8"
 	},
 	"optionalDependencies": {
-		"eslint-plugin-react-refresh": ">= 0.4.12",
-		"@rollup/rollup-linux-x64-gnu": "4.24.0"
+		"@rollup/rollup-linux-x64-gnu": "4.24.0",
+		"eslint-plugin-react-refresh": ">= 0.4.12"
 	},
-	"prettier": "@caspeco/prettier-config",
-	"license": "MIT",
+	"engines": {
+		"node": ">=20",
+		"npm": ">=9"
+	},
 	"publishConfig": {
 		"access": "public"
-	},
-	"eslintConfig": {
-		"extends": "."
 	}
 }
