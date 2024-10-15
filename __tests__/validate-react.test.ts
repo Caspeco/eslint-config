@@ -2,6 +2,7 @@ import { describe, it } from "vitest";
 import eslint from "eslint";
 import frontendReact from "./fixtures/react/eslint.config";
 import { assertHasEslintError } from "./helper";
+import { createVanillaTests } from "./vanilla-helper";
 
 describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
@@ -62,3 +63,6 @@ describe("validate react config", () => {
 		});
 	});
 });
+
+// Also run the vanilla tests with the React config (inherits the vanilla config)
+createVanillaTests(frontendReact)();
