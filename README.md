@@ -50,12 +50,6 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 
 For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/blob/main/src/frontend-react.js).
 
-## Contributing
-
-- Create a PAT (Classic) on Github with the scope "Packages: Read".
-- Set an environment variable locally named `GPR_PRIVATE_READ_TOKEN` to the PAT created
-- Run `npm install`
-
 ## Release
 
 - Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
@@ -63,13 +57,15 @@ For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/bl
 - Enter the version that you'd like to release, skip the `v` prefix.
 - Publish
 
-__You can ignore the version in the `package.json` file, that is only used when you're publishing manually to NPM, e.g. a preview version__
+_You can ignore the version in the `package.json` file, that is only used when you're publishing manually to NPM, e.g. a preview version._
 
 ### Publish a preview to NPM
 
 ```bash
 npm --ignore-scripts publish --access public --tag next
 ```
+
+This step requires you to be a collaborator on the NPM package.
 
 ## Tests
 
