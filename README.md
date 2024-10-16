@@ -56,7 +56,22 @@ For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/bl
 - Set an environment variable locally named `GPR_PRIVATE_READ_TOKEN` to the PAT created
 - Run `npm install`
 
-### Tests
+## Release
+
+- Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
+- Click "Draft a new release"
+- Enter the version that you'd like to release, skip the `v` prefix.
+- Publish
+
+__You can ignore the version in the `package.json` file, that is only used when you're publishing manually to NPM, e.g. a preview version__
+
+### Publish a preview to NPM
+
+```bash
+npm --ignore-scripts publish --access public --tag next
+```
+
+## Tests
 
 ```bash
 npm install
