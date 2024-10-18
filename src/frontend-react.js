@@ -1,6 +1,8 @@
 import frontendVanilla from "./frontend-vanilla.js";
+// @ts-ignore
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
+// @ts-ignore
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import caspecoDiscourageChakraImport from "./plugins/caspeco.js";
 import globals from "globals";
@@ -16,8 +18,8 @@ const flatConfig = [
 			},
 		},
 		plugins: {
-			react: reactPlugin,
-			caspeco: caspecoDiscourageChakraImport,
+			react: /** @type {import('eslint').ESLint.Plugin} */ (reactPlugin),
+			"caspeco": caspecoDiscourageChakraImport,
 			"react-refresh": reactRefresh,
 			"react-hooks": reactHooksPlugin,
 		},

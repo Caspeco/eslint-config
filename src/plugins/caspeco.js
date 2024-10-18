@@ -1,4 +1,10 @@
-/** @type {import('eslint').Linter.RuleEntry<[]>} */
+/**
+ * @typedef {import("eslint").Rule.RuleModule} Rule
+ */
+
+/**
+ * @type {{ rules: { [key: string]: Rule } }}
+ */
 const caspeco = {
 	rules: {
 		"discourage-chakra-import": {
@@ -19,7 +25,7 @@ const caspeco = {
 				return {
 					ImportDeclaration(node) {
 						const importPath = node.source.value;
-						if (importPath.startsWith("@chakra-ui/")) {
+						if (typeof importPath === "string" && importPath.startsWith("@chakra-ui/")) {
 							context.report({
 								node,
 								messageId: "restrictedImport",
