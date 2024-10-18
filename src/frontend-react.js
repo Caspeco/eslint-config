@@ -19,7 +19,7 @@ const flatConfig = [
 		},
 		plugins: {
 			react: /** @type {import('eslint').ESLint.Plugin} */ (reactPlugin),
-			"caspeco": caspecoDiscourageChakraImport,
+			caspeco: caspecoDiscourageChakraImport,
 			"react-refresh": reactRefresh,
 			"react-hooks": reactHooksPlugin,
 		},
