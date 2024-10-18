@@ -16,6 +16,7 @@
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"test": "vitest",
+		"tsc": "tsc",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
 		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},
@@ -27,6 +28,7 @@
 		"@caspeco/prettier-config": "1.0.6",
 		"@eslint/js": "^9.12.0",
 		"@types/eslint": "9.6.1",
+		"@types/eslint__js": "^8.42.3",
 		"@typescript-eslint/eslint-plugin": "8.8.1",
 		"@typescript-eslint/parser": "8.8.1",
 		"eslint": "9.12.0",

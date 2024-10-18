@@ -1,6 +1,8 @@
 import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
 import js from "@eslint/js";
+// @ts-ignore
 import checkFile from "eslint-plugin-check-file";
+// @ts-ignore
 import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -11,6 +13,7 @@ const flatConfig = [
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
+				// @ts-ignore
 				tsconfigRootDir: import.meta.name,
 			},
 		},

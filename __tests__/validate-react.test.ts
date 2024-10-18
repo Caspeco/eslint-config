@@ -39,7 +39,7 @@ describe("validate react config", () => {
 		});
 	});
 
-	describe("no-restricted-imports", () => {
+	describe("caspeco/discourage-chakra-import", () => {
 		it("validates invalid chakra import", async function async() {
 			const cli = new eslint.ESLint({
 				overrideConfig: frontendReact,
@@ -47,7 +47,7 @@ describe("validate react config", () => {
 			});
 
 			const result = await cli.lintFiles("__tests__/fixtures/react/restricted-imports.tsx");
-			assertHasEslintError(result, "no-restricted-imports");
+			assertHasEslintError(result, "caspeco/discourage-chakra-import");
 		});
 	});
 
