@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('eslint').Linter.RuleEntry<[]>} */
+const caspeco = {
 	rules: {
 		"discourage-chakra-import": {
 			meta: {
@@ -32,3 +33,5 @@ module.exports = {
 		},
 	},
 };
+
+export default caspeco;
