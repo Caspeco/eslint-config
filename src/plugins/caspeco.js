@@ -5,7 +5,7 @@ const caspeco = {
 			meta: {
 				type: "suggestion",
 				docs: {
-					description: "Discourage importing anything from @chakra-ui/*",
+					description: "Discourage importing anything from @chakra-ui/*. Use imports from "@caspeco/casper-ui-library instead.",
 					category: "Best Practices",
 					recommended: false,
 				},
