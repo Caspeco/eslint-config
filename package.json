@@ -16,6 +16,7 @@
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"test": "vitest",
+		"tsc": "tsc",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
 		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},

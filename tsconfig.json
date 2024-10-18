@@ -20,5 +20,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src/**/*.js", "__tests__/**/*.ts", "__tests__/**/*.tsx"]
+	"include": ["src/**/*.js", "__tests__/**/*.ts", "__tests__/**/*.tsx"],
+	"exclude": ["__tests__/fixtures/**/*"]
 }
