@@ -25,8 +25,16 @@ For details, see [frontend-vanilla.js](https://github.com/Caspeco/eslint-config/
 
 Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#recommended-type-checked) config.
 
-### check-file
+### eslint-plugin-check-file
 
 [eslint-plugin-check-file](https://github.com/dukeluo/eslint-plugin-check-file/)
 
 Using `KEBAB_CASE` for filename and folders.
+
+#### Background
+
+We enforce this naming convention because:
+
+1. **Cross-Platform Consistency** : Avoids issues on case-insensitive systems (e.g., Windows, macOS) where `MyFile.js` and `myfile.js` are treated the same, causing potential conflicts. This can lead to problems in Git when contributors on different platforms push files with varying cases, creating unnecessary diffs or merge conflicts. Kebab-case ensures uniform file naming across all environments.
+2. **Readability**: Clear, natural separation of words with hyphens.
+3. **Predictability**: Enforcing kebab-case ensures a consistent file-naming pattern across the project, reducing confusion and errors.
