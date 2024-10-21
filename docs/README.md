@@ -2,12 +2,14 @@
 
 The provided configuration contains shared ESLint rules for typescript projects across Caspeco.
 
-- [Vanilla](/configs/vanilla.md)
-- [React](/configs/react.md)
+- [Vanilla Configuration](/configs/vanilla.md) - For vanilla Typescript projects
+- [React Configuration](/configs/react.md) - For React based projects
 
-# Release
+# Contributing
 
-## Publish
+## Release
+
+### Publish
 
 - Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
 - Click "Draft a new release"
@@ -16,7 +18,7 @@ The provided configuration contains shared ESLint rules for typescript projects 
 
 _You can ignore the version in the `package.json` file, that is only used when you're publishing manually to NPM, e.g. a preview version._
 
-## Publish a preview to NPM
+### Publish a preview to NPM
 
 ```bash
 npm --ignore-scripts publish --access public --tag next
@@ -24,15 +26,27 @@ npm --ignore-scripts publish --access public --tag next
 
 This step requires you to be a collaborator on the NPM package.
 
-# Tests and verification
+## Tests
 
-Tests are located in the `__tests__` directory.
+Tests are located in the `__tests__` directory. There are fixtures available for each config to represent a more representative test scenario.
 
 ```bash
 npm install
 npm run test
-npm run tsc
+```
+
+## Verification
+
+### Prettier
+
+```bash
 npm run prettier:check
+```
+
+### Type checks
+
+```bash
+npm run tsc
 ```
 
 # Credit

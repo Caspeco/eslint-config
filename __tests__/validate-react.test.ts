@@ -1,8 +1,8 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
 import frontendReact from "./fixtures/react/eslint.config";
-import { assertHasEslintError } from "./helper";
-import { createVanillaTests } from "./vanilla-helper";
+import { assertHasEslintError } from "./utils/has-eslint-error";
+import { createVanillaTests } from "./validate-vanilla.test";
 
 describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
