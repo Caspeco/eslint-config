@@ -16,6 +16,6 @@ In this project, we strongly encourage developers to use our Caspeco UI library,
 
 #### When It’s Valid to Use Chakra
 
-In certain cases, such as using hooks provided by Chakra (e.g., `useDisclosure`, `useToast`, `useBreakpointValue`), it may still be valid to import Chakra files directly. These hooks often provide core functionality that integrates well with our components, and using them can enhance the logic of custom components or behaviors.
+In certain cases, such as using hooks provided by Chakra (e.g., `useDisclosure`, `useMediaQuery`, `useBreakpointValue`), it may still be valid to import Chakra files directly. These hooks often provide core functionality that integrates well with our components, and using them can enhance the logic of custom components or behaviors.
 
 However, even in these cases, we encourage the use of any equivalent Caspeco UI hooks if they exist, to maintain consistency and benefit from our custom extensions.
