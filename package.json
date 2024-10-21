@@ -13,6 +13,7 @@
 	"main": "src/index.js",
 	"scripts": {
 		"ci-test": "CI=true vitest",
+		"docs:preview": "docsify serve docs",
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"test": "vitest",
@@ -31,6 +32,7 @@
 		"@types/eslint__js": "^8.42.3",
 		"@typescript-eslint/eslint-plugin": "8.10.0",
 		"@typescript-eslint/parser": "8.10.0",
+		"docsify-cli": "^4.4.4",
 		"eslint": "9.13.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-check-file": "2.8.0",
