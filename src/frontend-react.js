@@ -1,7 +1,10 @@
 import frontendVanilla from "./frontend-vanilla.js";
+// @ts-ignore
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
+// @ts-ignore
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import caspecoDiscourageChakraImport from "./plugins/caspeco.js";
 import globals from "globals";
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -15,7 +18,8 @@ const flatConfig = [
 			},
 		},
 		plugins: {
-			react: reactPlugin,
+			react: /** @type {import('eslint').ESLint.Plugin} */ (reactPlugin),
+			caspeco: caspecoDiscourageChakraImport,
 			"react-refresh": reactRefresh,
 			"react-hooks": reactHooksPlugin,
 		},
@@ -33,12 +37,7 @@ const flatConfig = [
 			"react/react-in-jsx-scope": "off",
 			"react/prop-types": "off",
 			"react/display-name": "off",
-			"no-restricted-imports": [
-				"error",
-				{
-					patterns: ["@chakra-ui/**"],
-				},
-			],
+			"caspeco/discourage-chakra-import": "error",
 		},
 	},
 ];
