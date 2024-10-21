@@ -5,6 +5,10 @@ The provided configuration contains shared ESLint rules for typescript projects 
 - [Vanilla Configuration](/configs/vanilla.md) - For vanilla Typescript projects
 - [React Configuration](/configs/react.md) - For React based projects
 
+## NPM Package
+
+Available at [@caspeco/eslint-config](https://www.npmjs.com/package/@caspeco/eslint-config).
+
 # Contributing
 
 ## Release
