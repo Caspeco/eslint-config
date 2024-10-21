@@ -1,5 +1,7 @@
 # Getting Started
 
+## Configurations
+
 The provided configuration contains shared ESLint rules for typescript projects across Caspeco.
 
 - [Vanilla Configuration](/configs/vanilla.md) - For vanilla Typescript projects
@@ -8,6 +10,10 @@ The provided configuration contains shared ESLint rules for typescript projects 
 ## NPM Package
 
 Available at [@caspeco/eslint-config](https://www.npmjs.com/package/@caspeco/eslint-config).
+
+# Plugins
+
+- [Caspeco](plugins/caspeco.md)
 
 # Contributing
 
