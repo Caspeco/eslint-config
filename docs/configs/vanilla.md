@@ -1,4 +1,3 @@
-
 # Frontend Vanilla
 
 ```bash

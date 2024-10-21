@@ -1,7 +1,7 @@
-
 # Frontend React
 
 ## Usage
+
 ```bash
 npm install --save-dev @caspeco/eslint-config eslint-plugin-react-refresh eslint-plugin-react-hooks eslint-plugin-react
 ```
@@ -18,6 +18,7 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 +
 + export default config;
 ```
+
 ## Plugins
 
 For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/blob/main/src/frontend-react.js).
@@ -31,8 +32,9 @@ For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/bl
 [eslint-react-plugin](https://github.com/jsx-eslint/eslint-plugin-react)
 
 ### eslint-plugin-react-refresh
+
 [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh)
 
 ### eslint-plugin-react-hooks
-[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 
+[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)

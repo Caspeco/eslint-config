@@ -2,12 +2,13 @@
 
 The provided configuration contains shared ESLint rules for typescript projects across Caspeco.
 
-* [Vanilla](/configs/vanilla.md)
-* [React](/configs/react.md)
+- [Vanilla](/configs/vanilla.md)
+- [React](/configs/react.md)
 
 # Release
 
 ## Publish
+
 - Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
 - Click "Draft a new release"
 - Enter the version that you'd like to release, skip the `v` prefix.
