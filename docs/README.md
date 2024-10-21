@@ -17,6 +17,8 @@ Available at [@caspeco/eslint-config](https://www.npmjs.com/package/@caspeco/esl
 
 # Contributing
 
+Please run `npm install` before any other commands below.
+
 ## Release
 
 ### Publish
@@ -36,12 +38,19 @@ npm --ignore-scripts publish --access public --tag next
 
 This step requires you to be a collaborator on the NPM package.
 
+## Documentation
+
+Documentation is available in the `docs/` folder and can be previewed with:
+
+```bash
+npm run docs:preview
+```
+
 ## Tests
 
 Tests are located in the `__tests__` directory. There are fixtures available for each config to represent a more representative test scenario.
 
 ```bash
-npm install
 npm run test
 ```
 
