@@ -31,6 +31,18 @@ export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.L
 				});
 			});
 		});
+
+		describe("no-barrel-files plugin", () => {
+			it("validates no-barrel-files/no-barrel-files", async function async() {
+				const cli = new eslint.ESLint({
+					overrideConfig,
+					overrideConfigFile: true,
+				});
+
+				const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
+				assertHasEslintError(result, "no-barrel-files/no-barrel-files");
+			});
+		});
 	};
 }
 
