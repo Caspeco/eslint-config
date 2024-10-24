@@ -24,7 +24,7 @@ const flatConfig = [
 			"react-hooks": reactHooksPlugin,
 		},
 		languageOptions: {
-			...reactPlugin.configs.flat.recommended.languageOptions,
+			...reactPlugin.configs.flat?.recommended.languageOptions,
 			globals: {
 				...globals.serviceworker,
 				...globals.browser,
