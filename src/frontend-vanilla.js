@@ -4,6 +4,8 @@ import js from "@eslint/js";
 import checkFile from "eslint-plugin-check-file";
 // @ts-ignore
 import eslintConfigPrettier from "eslint-config-prettier";
+// @ts-ignore
+import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 
 /** @type {import('eslint').Linter.Config[]} */
 const flatConfig = [
@@ -31,8 +33,10 @@ const flatConfig = [
 		plugins: {
 			"@typescript-eslint": plugin,
 			"check-file": checkFile,
+			"no-barrel-files": noBarrelFilesPlugin,
 		},
 		rules: {
+			"no-barrel-files/no-barrel-files": "error",
 			"check-file/filename-naming-convention": [
 				"error",
 				{

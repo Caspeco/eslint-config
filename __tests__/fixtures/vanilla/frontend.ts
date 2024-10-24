@@ -8,3 +8,5 @@ var unusedFunction = function() {
 const x = 1 as any,
   y = 1 as any;
 const [x] = 1 as any;
+
+export * from "@/config";
