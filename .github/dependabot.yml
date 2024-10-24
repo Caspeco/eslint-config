@@ -9,3 +9,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      non-major-updates:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@caspeco/casper-ui-library*"
+        update-types:
+          - "minor"
+          - "patch"
