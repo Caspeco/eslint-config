@@ -24,14 +24,14 @@ const flatConfig = [
 			"react-hooks": reactHooksPlugin,
 		},
 		languageOptions: {
-			...reactPlugin.configs.flat.recommended.languageOptions,
+			...reactPlugin.configs.flat?.recommended.languageOptions,
 			globals: {
 				...globals.serviceworker,
 				...globals.browser,
 			},
 		},
 		rules: {
-			...reactPlugin.configs.flat.recommended.rules,
+			...reactPlugin.configs.flat?.recommended.rules,
 			...reactHooksPlugin.configs.recommended.rules,
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 			"react/react-in-jsx-scope": "off",
