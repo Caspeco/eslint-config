@@ -31,6 +31,10 @@ Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#rec
 
 We opt out of using barrel files as they come with a couple of potential issues. They can slow down your build/tests, cause circular dependencies, and makes tree shaking more difficult.
 
+More information:
+
+- [Please Stop Using Barrel Files](https://tkdodo.eu/blog/please-stop-using-barrel-files)
+
 ### eslint-plugin-check-file
 
 [eslint-plugin-check-file](https://github.com/dukeluo/eslint-plugin-check-file/)
