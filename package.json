@@ -41,6 +41,7 @@
 		"eslint-plugin-react-hooks": "^5.1.0",
 		"eslint-plugin-react-refresh": "^0.4.16",
 		"globals": "^15.14.0",
+		"prettier": "^3.4.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"sort-package-json": "^2.12.0",
