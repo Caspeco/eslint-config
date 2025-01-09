@@ -18,7 +18,7 @@
 		"prettier:fix": "prettier --write .",
 		"test": "vitest",
 		"tsc": "tsc",
-		"verify-deps": "node src/scripts/verify-versions.js",
+		"verify-deps": "node src/scripts/verify-versions.js eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh globals",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
 		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},
