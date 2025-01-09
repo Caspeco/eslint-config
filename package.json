@@ -18,9 +18,9 @@
 		"prettier:fix": "prettier --write .",
 		"test": "vitest",
 		"tsc": "tsc",
+		"verify-deps": "node src/scripts/verify-versions.js",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
-		"verify-package-sort-order:fix": "sort-package-json 'package.json'",
-		"verify-deps": "node src/scripts/verify-versions.js"
+		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"eslintConfig": {
