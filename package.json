@@ -19,7 +19,8 @@
 		"test": "vitest",
 		"tsc": "tsc",
 		"verify-package-sort-order": "sort-package-json 'package.json' --check",
-		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
+		"verify-package-sort-order:fix": "sort-package-json 'package.json'",
+		"verify-deps": "node src/scripts/verify-versions.js"
 	},
 	"prettier": "@caspeco/prettier-config",
 	"eslintConfig": {
@@ -37,9 +38,9 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-check-file": "2.8.0",
 		"eslint-plugin-no-barrel-files": "^1.2.0",
-		"eslint-plugin-react": "^7.37.2",
-		"eslint-plugin-react-hooks": "^5.0.0",
-		"eslint-plugin-react-refresh": "^0.4.14",
+		"eslint-plugin-react": "7.37.3",
+		"eslint-plugin-react-hooks": "5.1.0",
+		"eslint-plugin-react-refresh": "0.4.14",
 		"globals": "^15.12.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
@@ -60,9 +61,9 @@
 	},
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": "4.27.2",
-		"eslint-plugin-react": "^7.37.2",
-		"eslint-plugin-react-hooks": ">= 5.0.0",
-		"eslint-plugin-react-refresh": ">= 0.4.14",
+		"eslint-plugin-react": "7.37.3",
+		"eslint-plugin-react-hooks": "5.1.0",
+		"eslint-plugin-react-refresh": "0.4.16",
 		"globals": "^15.12.0"
 	},
 	"engines": {

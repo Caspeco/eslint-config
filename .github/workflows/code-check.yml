@@ -39,3 +39,6 @@ jobs:
 
       - name: Verify package.json sort order to avoid unnecessary diffs
         run: npm run verify-package-sort-order
+
+      - name: Verify that dependencies in devDependencies and optionalDependencies match
+        run: npm run verify-deps
