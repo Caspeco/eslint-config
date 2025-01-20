@@ -1,4 +1,4 @@
-src/scripts/verify-versions.js
+scripts/verify-versions.ts
 .github
 __tests__
 tsconfig.json

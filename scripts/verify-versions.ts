@@ -1,12 +1,24 @@
 import fs from "fs";
 
-const packageJson = JSON.parse(fs.readFileSync("package.json", "utf-8"));
-const packagesToVerify = process.argv.slice(2);
+interface PackageJson {
+	devDependencies?: Record<string, string>;
+	optionalDependencies?: Record<string, string>;
+}
+
+function readPackageJson(): PackageJson {
+	const fileContent = fs.readFileSync("package.json", "utf-8");
+	return JSON.parse(fileContent);
+}
+
+const packageJson: PackageJson = readPackageJson();
+const packagesToVerify: string[] = process.argv.slice(2);
 
 if (packagesToVerify.length === 0) {
 	console.error("No packages provided");
 	process.exit(1);
 }
+
+console.log("Packages to verify:", packagesToVerify);
 
 let hasMismatch = false;
 
