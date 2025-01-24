@@ -21,6 +21,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src/**/*.js", "__tests__/**/*.ts", "__tests__/**/*.tsx"],
+	"include": ["src/**/*.js", "__tests__/**/*.ts", "__tests__/**/*.tsx", "scripts/verify-versions.ts"],
 	"exclude": ["__tests__/fixtures/**/*"]
 }
