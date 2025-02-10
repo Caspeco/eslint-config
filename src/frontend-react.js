@@ -10,7 +10,7 @@ import globals from "globals";
 const flatConfig = [
 	...frontendVanilla,
 	{
-		files: ["**/*.ts","**/*.tsx", "**/*.jsx"],
+		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 		settings: {
 			react: {
 				version: "detect",
