@@ -69,7 +69,7 @@
 		"globals": "15.14.0"
 	},
 	"engines": {
-		"node": ">=23.6",
+		"node": ">=23.7",
 		"npm": ">=9"
 	},
 	"publishConfig": {
