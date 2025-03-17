@@ -8,7 +8,7 @@ describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
 		it("validates hooks rules, react-hooks/rules-of-hooks", async function async() {
 			const cli = new eslint.ESLint({
-				overrideConfig: frontendReact,
+				overrideConfig: frontendReact as eslint.ESLint.Options['overrideConfig'],
 				overrideConfigFile: true,
 			});
 
@@ -18,7 +18,7 @@ describe("validate react config", () => {
 
 		it("validates hooks rules, react-hooks/exhaustive-deps", async function async() {
 			const cli = new eslint.ESLint({
-				overrideConfig: frontendReact,
+				overrideConfig: frontendReact as eslint.ESLint.Options['overrideConfig'],
 				overrideConfigFile: true,
 			});
 
@@ -30,7 +30,7 @@ describe("validate react config", () => {
 	describe("react-refresh plugin", () => {
 		it("validates react-refresh/only-export-components", async function async() {
 			const cli = new eslint.ESLint({
-				overrideConfig: frontendReact,
+				overrideConfig: frontendReact as eslint.ESLint.Options['overrideConfig'],
 				overrideConfigFile: true,
 			});
 
@@ -42,7 +42,7 @@ describe("validate react config", () => {
 	describe("caspeco/discourage-chakra-import", () => {
 		it("validates invalid chakra import", async function async() {
 			const cli = new eslint.ESLint({
-				overrideConfig: frontendReact,
+				overrideConfig: frontendReact as eslint.ESLint.Options['overrideConfig'],
 				overrideConfigFile: true,
 			});
 
@@ -54,7 +54,7 @@ describe("validate react config", () => {
 	describe("react plugin", () => {
 		it("validates react/no-find-dom-node", async function async() {
 			const cli = new eslint.ESLint({
-				overrideConfig: frontendReact,
+				overrideConfig: frontendReact as eslint.ESLint.Options['overrideConfig'],
 				overrideConfigFile: true,
 			});
 
@@ -65,4 +65,4 @@ describe("validate react config", () => {
 });
 
 // Also run the vanilla tests with the React config (inherits the vanilla config)
-createVanillaTests(frontendReact)();
+createVanillaTests(frontendReact as eslint.Linter.Config<eslint.Linter.RulesRecord>[])();

@@ -47,4 +47,4 @@ export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.L
 }
 
 // Tests are instansiated from vanilla-helper to easier test inherited configs
-createVanillaTests(frontendVanilla)();
+createVanillaTests(frontendVanilla as eslint.Linter.Config<eslint.Linter.RulesRecord>[])();
