@@ -7,7 +7,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 // @ts-ignore
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
