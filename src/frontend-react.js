@@ -4,7 +4,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
 // @ts-ignore
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import caspecoDiscourageChakraImport from "./plugins/caspeco.js";
+import caspecoPlugin from "./plugins/caspeco.js";
 import globals from "globals";
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -19,7 +19,7 @@ const flatConfig = [
 		},
 		plugins: {
 			react: reactPlugin,
-			caspeco: caspecoDiscourageChakraImport,
+			caspeco: caspecoPlugin,
 			"react-refresh": reactRefresh,
 			"react-hooks": reactHooksPlugin,
 		},
