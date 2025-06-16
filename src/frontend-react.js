@@ -29,6 +29,10 @@ const flatConfig = [
 				...globals.serviceworker,
 				...globals.browser,
 			},
+			parserOptions: {
+				...reactPlugin.configs.flat?.recommended.languageOptions?.parserOptions,
+				ecmaVersion: "latest",
+			},
 		},
 		rules: {
 			...reactPlugin.configs.flat?.recommended.rules,
