@@ -10,7 +10,7 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 + import { vanillaConfig } from "@caspeco/eslint-config";
 +
 + const config = [
-+ 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++ 	{ ignores: ["src/accessmanagement-api.ts"] },
 + 	...vanillaConfig,
 + ];
 +
