@@ -10,7 +10,7 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 + import { vanillaConfig } from "@caspeco/eslint-config";
 +
 + const config = [
-+ 	{ ignores: ["src/accessmanagement-api.ts", "src/types/caspeco-navigation"] },
++ 	{ ignores: ["src/accessmanagement-api.ts"] },
 + 	...vanillaConfig,
 + ];
 +
@@ -30,6 +30,8 @@ Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#rec
 [eslint-plugin-no-barrel-files](https://github.com/art0rz/eslint-plugin-no-barrel-files)
 
 We opt out of using barrel files as they come with a couple of potential issues. They can slow down your build/tests, cause circular dependencies, and makes tree shaking more difficult.
+
+_Note: We have situations where we allow barrel files, e.g. for libraries consumed as npm packages._
 
 More information:
 
