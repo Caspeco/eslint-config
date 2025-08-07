@@ -1,8 +1,6 @@
 import frontendVanilla from "./frontend-vanilla.js";
-// @ts-ignore
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
-// @ts-ignore
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import caspecoPlugin from "./plugins/caspeco.js";
 import globals from "globals";

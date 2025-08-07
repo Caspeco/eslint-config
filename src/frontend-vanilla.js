@@ -1,10 +1,7 @@
 import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
 import js from "@eslint/js";
-// @ts-ignore
 import checkFile from "eslint-plugin-check-file";
-// @ts-ignore
 import eslintConfigPrettier from "eslint-config-prettier";
-// @ts-ignore
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
