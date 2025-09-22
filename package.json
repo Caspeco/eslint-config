@@ -31,7 +31,7 @@
 		"@eslint/js": "^9.36.0",
 		"@types/eslint": "9.6.1",
 		"@types/node": "^24.5.2",
-		"docsify-cli": "^4.4.4",
+		"docsify-cli": "^5.0.0-rc.1",
 		"eslint": "9.36.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-check-file": "3.3.0",

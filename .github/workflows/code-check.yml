@@ -28,6 +28,9 @@ jobs:
         env:
           GPR_PRIVATE_READ_TOKEN: ${{ secrets.GPR_PRIVATE_READ_TOKEN }}
 
+      - name: Security audit
+        run: npm audit --audit-level=moderate
+
       - name: Tests
         run: npm run ci-test
 
