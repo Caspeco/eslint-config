@@ -37,7 +37,7 @@ const flatConfig = [
 	},
 	// React hooks plugin recommended config (array of configs, so we use map)
 	// @ts-expect-error - eslint-plugin-react-hooks types are incomplete
-	...reactHooksPlugin.configs.recommended.map(config => ({
+	...reactHooksPlugin.configs.recommended.map((config) => ({
 		...config,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 	})),
