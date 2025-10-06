@@ -8,18 +8,14 @@ import globals from "globals";
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
 const flatConfig = [
 	...frontendVanilla,
+	// React plugin recommended config (single object)
 	{
+		...reactPlugin.configs.flat?.recommended,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 		settings: {
 			react: {
 				version: "detect",
 			},
-		},
-		plugins: {
-			react: reactPlugin,
-			caspeco: caspecoPlugin,
-			"react-refresh": reactRefresh,
-			"react-hooks": reactHooksPlugin,
 		},
 		languageOptions: {
 			...reactPlugin.configs.flat?.recommended.languageOptions,
@@ -34,11 +30,33 @@ const flatConfig = [
 		},
 		rules: {
 			...reactPlugin.configs.flat?.recommended.rules,
-			...reactHooksPlugin.configs.recommended.rules,
-			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 			"react/react-in-jsx-scope": "off",
 			"react/prop-types": "off",
 			"react/display-name": "off",
+		},
+	},
+	// React hooks plugin recommended config (array of configs, so we use map)
+	// @ts-expect-error - eslint-plugin-react-hooks types are incomplete
+	...reactHooksPlugin.configs.recommended.map(config => ({
+		...config,
+		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
+	})),
+	// React refresh plugin config (single object)
+	{
+		...reactRefresh.configs.recommended,
+		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
+		rules: {
+			...reactRefresh.configs.recommended.rules,
+			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		},
+	},
+	// Additional custom rules
+	{
+		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
+		plugins: {
+			caspeco: caspecoPlugin,
+		},
+		rules: {
 			"caspeco/discourage-chakra-import": "error",
 		},
 	},
