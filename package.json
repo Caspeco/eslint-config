@@ -37,7 +37,7 @@
 		"eslint-plugin-check-file": "3.3.0",
 		"eslint-plugin-no-barrel-files": "^1.2.2",
 		"eslint-plugin-react": "7.37.5",
-		"eslint-plugin-react-hooks": "6.1.1",
+		"eslint-plugin-react-hooks": "7.0.0",
 		"eslint-plugin-react-refresh": "0.4.23",
 		"globals": "16.4.0",
 		"prettier": "^3.6.2",
@@ -58,7 +58,7 @@
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": ">=4.52.4",
 		"eslint-plugin-react": "7.37.5",
-		"eslint-plugin-react-hooks": "6.1.1",
+		"eslint-plugin-react-hooks": "7.0.0",
 		"eslint-plugin-react-refresh": "0.4.23",
 		"globals": "16.4.0"
 	},

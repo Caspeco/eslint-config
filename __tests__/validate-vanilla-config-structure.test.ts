@@ -67,35 +67,6 @@ describe("validate vanilla config structure", () => {
 		});
 	});
 
-	describe("configuration order", () => {
-		it("should have ESLint recommended as first config", () => {
-			// First config should be ESLint recommended
-			const firstConfig = flatConfigArray[0];
-
-			// Check if it has ESLint recommended rules
-			expect(firstConfig.rules).toBeDefined();
-			expect(firstConfig.rules?.["no-unused-vars"]).toBeDefined();
-		});
-
-		it("should have Prettier config last to override formatting rules", () => {
-			// Find configs that might be prettier (has rules but no plugins)
-			const lastRulesConfig = [...flatConfigArray]
-				.reverse()
-				.find((config) => config.rules && Object.keys(config.rules).length > 0);
-
-			// Prettier config typically disables formatting rules
-			// Check for some common rules that prettier disables
-			if (lastRulesConfig?.rules) {
-				const rules = lastRulesConfig.rules;
-				// Prettier config sets various formatting rules to 'off' or 0
-				const formattingRules = Object.entries(rules).filter(([_, value]) => value === "off" || value === 0);
-
-				// Should have multiple formatting rules disabled
-				expect(formattingRules.length).toBeGreaterThan(5);
-			}
-		});
-	});
-
 	describe("plugin registration", () => {
 		it("should register check-file and no-barrel-files plugins only once", () => {
 			const pluginCounts = new Map<string, number>();

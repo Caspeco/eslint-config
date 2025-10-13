@@ -35,12 +35,15 @@ const flatConfig = [
 			"react/display-name": "off",
 		},
 	},
-	// React hooks plugin recommended config (array of configs, so we use map)
-	// @ts-expect-error - eslint-plugin-react-hooks types are incomplete
-	...reactHooksPlugin.configs.recommended.map((config) => ({
-		...config,
+	// React hooks plugin recommended config (single object)
+	{
+		...reactHooksPlugin.configs.recommended,
+		plugins: { "react-hooks": reactHooksPlugin },
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
-	})),
+		rules: {
+			...reactHooksPlugin.configs.recommended.rules,
+		},
+	},
 	// React refresh plugin config (single object)
 	{
 		...reactRefresh.configs.recommended,
