@@ -41,7 +41,12 @@ const flatConfig = [
 		plugins: { "react-hooks": reactHooksPlugin },
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 		rules: {
-			...reactHooksPlugin.configs.recommended.rules,
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+			// We ignore the compiler specific rules as we need React 19 for this.
+			// https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#flat-config-eslintconfigjsts-1
+			// When we support this, we can add:
+			// ...reactHooksPlugin.configs.recommended.rules,
 		},
 	},
 	// React refresh plugin config (single object)
