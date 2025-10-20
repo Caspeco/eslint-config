@@ -1,9 +1,8 @@
 import { describe, it, expect } from "vitest";
 import frontendVanilla from "../src/frontend-vanilla.js";
-import type { Linter } from "eslint";
 
 describe("validate vanilla config structure", () => {
-	const flatConfigArray = frontendVanilla as Linter.Config[];
+	const flatConfigArray = frontendVanilla;
 
 	describe("TypeScript project service configuration", () => {
 		it("should have TypeScript project service properly configured", () => {
@@ -13,6 +12,7 @@ describe("validate vanilla config structure", () => {
 
 			expect(projectServiceConfig).toBeDefined();
 			expect(projectServiceConfig?.languageOptions?.parserOptions?.projectService).toBe(true);
+
 			// tsconfigRootDir uses import.meta.name which might be undefined in test environment
 			expect("tsconfigRootDir" in (projectServiceConfig?.languageOptions?.parserOptions || {})).toBe(true);
 		});
