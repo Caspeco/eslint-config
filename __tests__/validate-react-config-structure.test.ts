@@ -1,15 +1,14 @@
 import { describe, it, expect } from "vitest";
 import frontendReact from "../src/frontend-react.js";
 import frontendVanilla from "../src/frontend-vanilla.js";
-import type { Linter } from "eslint";
 
 describe("validate react config structure", () => {
-	const flatConfigArray = frontendReact as Linter.Config[];
+	const flatConfigArray = frontendReact;
 
 	describe("configuration inheritance", () => {
 		it("should properly inherit from vanilla config", () => {
 			// React config should start with vanilla config
-			const vanillaConfigCount = (frontendVanilla as Linter.Config[]).length;
+			const vanillaConfigCount = frontendVanilla.length;
 
 			// React config should have more entries than vanilla
 			expect(flatConfigArray.length).toBeGreaterThan(vanillaConfigCount);
