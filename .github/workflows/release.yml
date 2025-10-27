@@ -5,46 +5,13 @@ on:
     types:
       - released
 
-permissions:
-  id-token: write # Required for OIDC
-  contents: read
-
 jobs:
-  publish-gpr:
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Read node and npm versions from package.json
-        uses: skjnldsv/read-package-engines-version-actions@v3
-        id: package-engines-versions
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ steps.package-engines-versions.outputs.nodeVersion }}
-          registry-url: https://npm.pkg.github.com/
-
-      - run: npm ci
-        env:
-          GPR_PRIVATE_READ_TOKEN: ${{ secrets.GPR_PRIVATE_READ_TOKEN }}
-
-      - run: npm version ${TAG_NAME} --git-tag-version=false --allow-same-version
-        env:
-          TAG_NAME: ${{ github.event.release.tag_name }}
-
-      - name: Delete engines field from package.json
-        run: npm pkg delete engines
-
-      - run: npm --ignore-scripts publish
-
   publish-npm:
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
+      id-token: write # Required for OIDC
     steps:
       - uses: actions/checkout@v4
 
@@ -55,7 +22,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ steps.package-engines-versions.outputs.nodeVersion }}
-          registry-url: "https://registry.npmjs.org"
 
       - run: npm ci
 
@@ -66,11 +32,12 @@ jobs:
       - name: Delete engines field from package.json
         run: npm pkg delete engines
 
-      - run: npm --ignore-scripts publish --access public
+      - name: Publish to npm with trusted publishing
+        run: npm --ignore-scripts publish --access public --provenance
 
   notify:
     name: Notify
-    needs: [publish-gpr, publish-npm]
+    needs: [publish-npm]
     if: ${{ !github.event.release.prerelease }}
     runs-on: ubuntu-latest
     steps:
