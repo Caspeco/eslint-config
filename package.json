@@ -27,25 +27,25 @@
 		"extends": "."
 	},
 	"devDependencies": {
-		"@caspeco/prettier-config": "1.0.6",
-		"@eslint/js": "^9.38.0",
+		"@caspeco/prettier-config": "1.0.7",
+		"@eslint/js": "^9.39.0",
 		"@types/eslint": "9.6.1",
-		"@types/node": "^24.9.1",
+		"@types/node": "^24.9.2",
 		"docsify-cli": "^5.0.0-rc.1",
-		"eslint": "9.38.0",
+		"eslint": "9.39.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-check-file": "3.3.0",
 		"eslint-plugin-no-barrel-files": "^1.2.2",
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
 		"eslint-plugin-react-refresh": "0.4.24",
-		"globals": "16.4.0",
+		"globals": "16.5.0",
 		"prettier": "^3.6.2",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"sort-package-json": "^3.4.0",
 		"vite": "7.1.12",
-		"vitest": "^4.0.3"
+		"vitest": "^4.0.6"
 	},
 	"peerDependencies": {
 		"@eslint/js": ">=9",
@@ -60,7 +60,7 @@
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
 		"eslint-plugin-react-refresh": "0.4.24",
-		"globals": "16.4.0"
+		"globals": "16.5.0"
 	},
 	"engines": {
 		"node": ">=24",
