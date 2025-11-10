@@ -2,7 +2,7 @@ import fs from "fs";
 
 interface PackageJson {
 	devDependencies?: Record<string, string>;
-	peerDependencies?: Record<string, string>;
+	optionalDependencies?: Record<string, string>;
 }
 
 function readPackageJson(): PackageJson {
@@ -24,35 +24,13 @@ let hasMismatch = false;
 
 packagesToVerify.forEach((pkg) => {
 	const devVersion = packageJson.devDependencies?.[pkg];
-	const peerVersion = packageJson.peerDependencies?.[pkg];
+	const optionalVersion = packageJson.optionalDependencies?.[pkg];
 
-	if (!devVersion) {
-		console.error(`${pkg} not found in devDependencies`);
+	if (devVersion && optionalVersion && devVersion !== optionalVersion) {
+		console.error(
+			`Version mismatch for ${pkg}: devDependencies (${devVersion}) !== optionalDependencies (${optionalVersion})`,
+		);
 		hasMismatch = true;
-		return;
-	}
-
-	if (!peerVersion) {
-		console.error(`${pkg} not found in peerDependencies`);
-		hasMismatch = true;
-		return;
-	}
-
-	// Extract version from devDependencies (e.g., "7.0.1" from "7.0.1" or "^7.0.1")
-	const devVersionClean = devVersion.replace(/^[\^~>=<]+/, "");
-
-	// Check if peerDependency range is satisfied by devDependency version
-	if (peerVersion.startsWith(">=")) {
-		const peerMinVersion = peerVersion.replace(/^>=\s*/, "");
-		const peerMajor = parseInt(peerMinVersion.split(".")[0]);
-		const devMajor = parseInt(devVersionClean.split(".")[0]);
-
-		if (devMajor < peerMajor) {
-			console.error(
-				`Version mismatch for ${pkg}: devDependencies (${devVersion}) does not satisfy peerDependencies (${peerVersion})`,
-			);
-			hasMismatch = true;
-		}
 	}
 });
 
