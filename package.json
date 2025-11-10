@@ -28,13 +28,13 @@
 	},
 	"devDependencies": {
 		"@caspeco/prettier-config": "1.0.7",
-		"@eslint/js": "^9.39.0",
+		"@eslint/js": "^9.39.1",
 		"@types/eslint": "9.6.1",
-		"@types/node": "^24.9.2",
+		"@types/node": "^24.10.0",
 		"docsify-cli": "^5.0.0-rc.1",
-		"eslint": "9.39.0",
+		"eslint": "9.39.1",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-check-file": "3.3.0",
+		"eslint-plugin-check-file": "3.3.1",
 		"eslint-plugin-no-barrel-files": "^1.2.2",
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
@@ -44,8 +44,8 @@
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"sort-package-json": "^3.4.0",
-		"vite": "7.1.12",
-		"vitest": "^4.0.6"
+		"vite": "7.2.2",
+		"vitest": "^4.0.8"
 	},
 	"peerDependencies": {
 		"@eslint/js": ">=9",
@@ -56,7 +56,7 @@
 		"typescript-eslint": ">=8.39.0"
 	},
 	"optionalDependencies": {
-		"@rollup/rollup-linux-x64-gnu": ">=4.52.5",
+		"@rollup/rollup-linux-x64-gnu": ">=4.53.1",
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
 		"eslint-plugin-react-refresh": "0.4.24",
