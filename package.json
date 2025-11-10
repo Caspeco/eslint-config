@@ -1,12 +1,12 @@
 {
 	"name": "@caspeco/eslint-config",
 	"version": "4.0.5",
-	"homepage": "https://github.com/caspeco/eslint-config#readme",
+	"homepage": "https://github.com/Caspeco/eslint-config#readme",
 	"bugs": {
-		"url": "https://github.com/caspeco/eslint-config/issues"
+		"url": "https://github.com/Caspeco/eslint-config/issues"
 	},
 	"repository": {
-		"url": "https://github.com/caspeco/eslint-config"
+		"url": "https://github.com/Caspeco/eslint-config"
 	},
 	"license": "MIT",
 	"type": "module",
