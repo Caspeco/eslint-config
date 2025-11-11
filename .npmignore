@@ -1,7 +1,0 @@
-scripts/verify-versions.ts
-.github
-__tests__
-tsconfig.json
-vitest.config.ts
-.tool-versions
-.prettierignore
