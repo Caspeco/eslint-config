@@ -10,6 +10,10 @@
  * - Rule names: caspeco/discourage-chakra-import → caspeco-react/discourage-chakra-import
  * - ESLint disable comments
  *
+ * Handles both:
+ * - Full migration: import { reactConfig } from "@caspeco/eslint-config"
+ * - Partial migration: import { reactConfig } from "@caspeco/eslint-config-react"
+ *
  * Usage:
  *   npx caspeco-react-migrate-v5 [path] [--dry-run]
  *
@@ -48,9 +52,19 @@ function transformImports(content, filename) {
 	let hasChanges = false;
 
 	// Replace import { reactConfig } from "@caspeco/eslint-config" → import config from "@caspeco/eslint-config-react"
-	const importPattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
-	if (importPattern.test(transformed)) {
-		transformed = transformed.replace(importPattern, 'import config from "@caspeco/eslint-config-react"');
+	// Also handle the case where package name is already updated but still using named import
+	const oldPackagePattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
+	const newPackagePattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config-react["']/;
+
+	if (oldPackagePattern.test(transformed)) {
+		transformed = transformed.replace(oldPackagePattern, 'import config from "@caspeco/eslint-config-react"');
+		hasChanges = true;
+
+		// If we changed the import, also update variable references
+		transformed = transformed.replace(/\breactConfig\b/g, "config");
+	} else if (newPackagePattern.test(transformed)) {
+		// Package name already updated, just change from named to default import
+		transformed = transformed.replace(newPackagePattern, 'import config from "@caspeco/eslint-config-react"');
 		hasChanges = true;
 
 		// If we changed the import, also update variable references
