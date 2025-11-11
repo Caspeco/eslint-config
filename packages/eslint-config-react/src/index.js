@@ -1,8 +1,4 @@
-import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
-import js from "@eslint/js";
-import checkFile from "eslint-plugin-check-file";
-import eslintConfigPrettier from "eslint-config-prettier";
-import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
+import tsConfig from "@caspeco/eslint-config-ts";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
@@ -11,53 +7,8 @@ import globals from "globals";
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
 const flatConfig = [
-	// Base JavaScript/TypeScript configs (from vanilla)
-	js.configs.recommended,
-	...typescriptEslintConfig.recommendedTypeChecked,
-	{
-		languageOptions: {
-			parserOptions: {
-				projectService: true,
-				// @ts-ignore
-				tsconfigRootDir: import.meta.name,
-			},
-		},
-	},
-	// TypeScript file-specific rules (from vanilla)
-	{
-		files: ["**/*.ts", "**/*.tsx"],
-		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
-		linterOptions: {
-			reportUnusedDisableDirectives: "warn",
-		},
-		languageOptions: {
-			parser: parser,
-			sourceType: "module",
-		},
-		plugins: {
-			"@typescript-eslint": plugin,
-			"check-file": checkFile,
-			"no-barrel-files": noBarrelFilesPlugin,
-		},
-		rules: {
-			"no-barrel-files/no-barrel-files": "error",
-			"check-file/filename-naming-convention": [
-				"error",
-				{
-					"**/*.{js,ts,tsx}": "KEBAB_CASE",
-				},
-				{
-					ignoreMiddleExtensions: true,
-				},
-			],
-			"check-file/folder-naming-convention": [
-				"error",
-				{
-					"src/**/": "KEBAB_CASE",
-				},
-			],
-		},
-	},
+	// Extend the vanilla TypeScript config
+	...tsConfig,
 	// React plugin recommended config
 	{
 		...reactPlugin.configs.flat?.recommended,
@@ -118,8 +69,6 @@ const flatConfig = [
 			"caspeco-react/discourage-chakra-import": "error",
 		},
 	},
-	// Prettier config (must be last from vanilla)
-	eslintConfigPrettier,
 ];
 
 export default flatConfig;

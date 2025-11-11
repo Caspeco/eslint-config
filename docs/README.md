@@ -2,18 +2,23 @@
 
 ## Configurations
 
-The provided configuration contains shared ESLint rules for typescript projects across Caspeco.
+This monorepo contains shared ESLint configurations for TypeScript projects across Caspeco.
 
-- [Vanilla Configuration](/configs/vanilla.md) - For vanilla Typescript projects
-- [React Configuration](/configs/react.md) - For React based projects
+- [TypeScript Configuration](/configs/vanilla.md) - For vanilla TypeScript projects
+- [React Configuration](/configs/react.md) - For React + TypeScript projects
 
-## NPM Package
+## NPM Packages
 
-Available at [@caspeco/eslint-config](https://www.npmjs.com/package/@caspeco/eslint-config).
+- [@caspeco/eslint-config-ts](https://www.npmjs.com/package/@caspeco/eslint-config-ts)
+- [@caspeco/eslint-config-react](https://www.npmjs.com/package/@caspeco/eslint-config-react)
+
+## Migration
+
+Upgrading from v4.x? See the [Migration Guide](/migration.md).
 
 # Plugins
 
-- [Caspeco](plugins/caspeco.md)
+- [Caspeco React](plugins/caspeco-react.md)
 
 # Contributing
 
@@ -23,20 +28,29 @@ Please run `npm install` before any other commands below.
 
 ### Publish
 
-- Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
-- Click "Draft a new release"
-- Enter the version that you'd like to release, skip the `v` prefix.
-- Publish
+This is an npm workspaces monorepo with multiple packages:
 
-_You can ignore the version in the `package.json` file, that is only used when you're publishing manually to NPM, e.g. a preview version._
+- `@caspeco/eslint-config-ts`
+- `@caspeco/eslint-config-react`
+
+To publish a new version:
+
+1. Update the version in all package.json files (root + packages)
+2. Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
+3. Click "Draft a new release"
+4. Enter the version (skip the `v` prefix)
+5. Publish
+
+The GitHub Action will publish all packages to npm.
 
 ### Publish a preview to NPM
 
 ```bash
-npm --ignore-scripts publish --access public --tag next
+# From root - publishes all workspace packages
+npm publish -ws --access public --tag next
 ```
 
-This step requires you to be a collaborator on the NPM package.
+This requires you to be a collaborator on the NPM packages.
 
 ## Documentation
 
@@ -48,10 +62,15 @@ npm run docs:preview
 
 ## Tests
 
-Tests are located in the `__tests__` directory. There are fixtures available for each config to represent a more representative test scenario.
+Tests are located in `packages/*/__tests__/` directories. Shared test utilities are in `packages/test-utils/`.
 
 ```bash
-npm run test
+# Run all tests
+npm test
+
+# Run tests for a specific package
+npm run test:ts
+npm run test:react
 ```
 
 ## Verification

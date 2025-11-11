@@ -1,25 +1,26 @@
-# Frontend Vanilla
+# TypeScript Configuration
+
+For vanilla TypeScript projects (non-React).
+
+## Installation
 
 ```bash
-npm install --save-dev @caspeco/eslint-config
+npm install --save-dev @caspeco/eslint-config-ts
 ```
 
-To use this configuration you'll need `eslint.config.js` file in your project root with the following content (for example):
+## Usage
 
-```diff
-+ import { vanillaConfig } from "@caspeco/eslint-config";
-+
-+ const config = [
-+ 	{ ignores: ["src/accessmanagement-api.ts"] },
-+ 	...vanillaConfig,
-+ ];
-+
-+ export default config;
+Create an `eslint.config.js` file in your project root:
+
+```js
+import config from "@caspeco/eslint-config-ts";
+
+export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
 ```
 
 ## Plugins
 
-For details, see [frontend-vanilla.js](https://github.com/Caspeco/eslint-config/blob/main/src/frontend-vanilla.js).
+For implementation details, see [index.js](https://github.com/Caspeco/eslint-config/blob/main/packages/eslint-config-ts/src/index.js).
 
 ### typescript-eslint
 
