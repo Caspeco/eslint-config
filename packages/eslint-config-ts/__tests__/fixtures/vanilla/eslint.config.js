@@ -1,5 +1,3 @@
-import vanillaConfig from "@/eslint-config-ts";
+import tsConfig from "@/eslint-config-ts";
 
-const config = [...vanillaConfig];
-
-export default config;
+export default tsConfig;

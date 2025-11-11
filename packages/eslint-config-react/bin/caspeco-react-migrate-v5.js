@@ -5,8 +5,7 @@
  *
  * This script updates:
  * - Package imports: @caspeco/eslint-config → @caspeco/eslint-config-react
- * - Named imports: { reactConfig } → default import
- * - Variable references: reactConfig → config
+ * - Named imports: { reactConfig } → default import reactConfig
  * - Rule names: caspeco/discourage-chakra-import → caspeco-react/discourage-chakra-import
  * - ESLint disable comments
  *
@@ -51,24 +50,24 @@ function transformImports(content, filename) {
 	let transformed = content;
 	let hasChanges = false;
 
-	// Replace import { reactConfig } from "@caspeco/eslint-config" → import config from "@caspeco/eslint-config-react"
+	// Replace import { reactConfig } from "@caspeco/eslint-config" → import reactConfig from "@caspeco/eslint-config-react"
 	// Also handle the case where package name is already updated but still using named import
 	const oldPackagePattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
 	const newPackagePattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config-react["']/;
 
 	if (oldPackagePattern.test(transformed)) {
-		transformed = transformed.replace(oldPackagePattern, 'import config from "@caspeco/eslint-config-react"');
+		transformed = transformed.replace(
+			oldPackagePattern,
+			'import reactConfig from "@caspeco/eslint-config-react"',
+		);
 		hasChanges = true;
-
-		// If we changed the import, also update variable references
-		transformed = transformed.replace(/\breactConfig\b/g, "config");
 	} else if (newPackagePattern.test(transformed)) {
 		// Package name already updated, just change from named to default import
-		transformed = transformed.replace(newPackagePattern, 'import config from "@caspeco/eslint-config-react"');
+		transformed = transformed.replace(
+			newPackagePattern,
+			'import reactConfig from "@caspeco/eslint-config-react"',
+		);
 		hasChanges = true;
-
-		// If we changed the import, also update variable references
-		transformed = transformed.replace(/\breactConfig\b/g, "config");
 	}
 
 	return { content: transformed, hasChanges };

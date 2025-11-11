@@ -16,11 +16,11 @@ This monorepo contains shared ESLint configurations for TypeScript projects acro
 
 Upgrading from v4.x? See the [Migration Guide](/migration.md).
 
-# Plugins
+## Plugins
 
 - [Caspeco React](plugins/caspeco-react.md)
 
-# Contributing
+## Contributing
 
 Please run `npm install` before any other commands below.
 
@@ -60,6 +60,8 @@ npm run update-versions 5.0.0-beta.1
 # 2. Publish all workspace packages with 'next' tag
 npm publish -ws --access public --tag next
 ```
+
+**Important:** When publishing a preview release, always bump the version number (e.g., `5.0.0-beta.1` → `5.0.0-beta.2`) using `npm run update-versions 5.0.0-beta.2`. This ensures that users can install the latest preview and that npm properly tracks version history.
 
 This requires you to be a collaborator on the NPM packages.
 
@@ -111,6 +113,6 @@ npm run prettier:check
 npm run tsc
 ```
 
-# Credit
+## Credit
 
 Based on the work of [Chainsafe: eslint-config](https://github.com/ChainSafe/eslint-config)

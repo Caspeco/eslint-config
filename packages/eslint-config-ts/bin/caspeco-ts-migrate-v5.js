@@ -5,8 +5,11 @@
  *
  * This script updates:
  * - Package imports: @caspeco/eslint-config → @caspeco/eslint-config-ts
- * - Named imports: { vanillaConfig } → default import
- * - Variable references: vanillaConfig → config
+ * - Named imports: { vanillaConfig } → default import tsConfig
+ *
+ * Handles both:
+ * - Full migration: import { vanillaConfig } from "@caspeco/eslint-config"
+ * - Partial migration: import { vanillaConfig } from "@caspeco/eslint-config-ts"
  *
  * Usage:
  *   npx caspeco-ts-migrate-v5 [path] [--dry-run]
@@ -36,14 +39,24 @@ function transformImports(content, filename) {
 	let transformed = content;
 	let hasChanges = false;
 
-	// Replace import { vanillaConfig } from "@caspeco/eslint-config" → import config from "@caspeco/eslint-config-ts"
-	const importPattern = /import\s*\{\s*vanillaConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
-	if (importPattern.test(transformed)) {
-		transformed = transformed.replace(importPattern, 'import config from "@caspeco/eslint-config-ts"');
+	// Replace import { vanillaConfig } from "@caspeco/eslint-config" → import tsConfig from "@caspeco/eslint-config-ts"
+	// Also handle the case where package name is already updated but still using named import
+	const oldPackagePattern = /import\s*\{\s*vanillaConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
+	const newPackagePattern = /import\s*\{\s*vanillaConfig\s*\}\s*from\s*["']@caspeco\/eslint-config-ts["']/;
+
+	if (oldPackagePattern.test(transformed)) {
+		transformed = transformed.replace(oldPackagePattern, 'import tsConfig from "@caspeco/eslint-config-ts"');
 		hasChanges = true;
 
 		// If we changed the import, also update variable references
-		transformed = transformed.replace(/\bvanillaConfig\b/g, "config");
+		transformed = transformed.replace(/\bvanillaConfig\b/g, "tsConfig");
+	} else if (newPackagePattern.test(transformed)) {
+		// Package name already updated, just change from named to default import
+		transformed = transformed.replace(newPackagePattern, 'import tsConfig from "@caspeco/eslint-config-ts"');
+		hasChanges = true;
+
+		// If we changed the import, also update variable references
+		transformed = transformed.replace(/\bvanillaConfig\b/g, "tsConfig");
 	}
 
 	return { content: transformed, hasChanges };
