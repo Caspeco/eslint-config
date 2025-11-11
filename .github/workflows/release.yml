@@ -50,11 +50,16 @@ jobs:
         with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
           TEXT: |
-            ## New version of Caspecos eslint-config was published.
-            New version: ${{ github.event.release.tag_name }}.
-            Author: ${{ github.event.release.author.login }}
+            ## 🚀 New version of Caspeco ESLint Config published
 
-            [Release details](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }})
+            **Version:** ${{ github.event.release.tag_name }}
+            **Author:** ${{ github.event.release.author.login }}
 
-            ## Changelog:
+            **Packages published:**
+            - [@caspeco/eslint-config-ts@${{ github.event.release.tag_name }}](https://www.npmjs.com/package/@caspeco/eslint-config-ts/v/${{ github.event.release.tag_name }})
+            - [@caspeco/eslint-config-react@${{ github.event.release.tag_name }}](https://www.npmjs.com/package/@caspeco/eslint-config-react/v/${{ github.event.release.tag_name }})
+
+            📝 [Release details](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }})
+
+            ## Changelog
             ${{ github.event.release.body }}
