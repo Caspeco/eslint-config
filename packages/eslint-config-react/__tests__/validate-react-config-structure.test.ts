@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import frontendReact from "../src/index.js";
+import frontendReact from "@/eslint-config-react";
 
 describe("validate react config structure", () => {
 	const flatConfigArray = frontendReact;

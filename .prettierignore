@@ -1,3 +1,4 @@
 package-lock.json
 **/__tests__/fixtures/**
 packages/test-utils/src/fixtures/**
+.claude/**

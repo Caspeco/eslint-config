@@ -19,8 +19,20 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+
+		/* Path aliases */
+		"baseUrl": ".",
+		"paths": {
+			"@/eslint-config-ts": ["./packages/eslint-config-ts/src/index.js"],
+			"@/eslint-config-react": ["./packages/eslint-config-react/src/index.js"]
+		}
 	},
-	"include": ["src/**/*.js", "__tests__/**/*.ts", "__tests__/**/*.tsx", "scripts/verify-versions.ts"],
-	"exclude": ["__tests__/fixtures/**/*"]
+	"include": [
+		"packages/*/src/**/*.js",
+		"packages/*/__tests__/**/*.ts",
+		"packages/*/__tests__/**/*.tsx",
+		"scripts/verify-versions.ts"
+	],
+	"exclude": ["packages/*/__tests__/fixtures/**/*"]
 }
