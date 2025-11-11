@@ -54,11 +54,13 @@ This configuration includes everything from our TypeScript config plus React-spe
 
 This package requires the following peer dependencies (automatically installed by npm 7+):
 
-- `eslint` >=9
-- `eslint-plugin-react` >=7.37.0
-- `eslint-plugin-react-hooks` >=7
-- `eslint-plugin-react-refresh` >=0.4.0
-- `globals` >=15
+- `eslint`
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-refresh`
+- `globals`
+
+See [package.json](./package.json) for specific version requirements.
 
 **Note:** Additional TypeScript-related peer dependencies are inherited from `@caspeco/eslint-config-ts` (installed automatically as a regular dependency).
 

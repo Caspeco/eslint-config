@@ -31,12 +31,14 @@ This configuration includes:
 
 This package requires the following peer dependencies (automatically installed by npm 7+):
 
-- `@eslint/js` >=9
-- `eslint` >=9
-- `eslint-config-prettier` >=9
-- `eslint-plugin-check-file` >=2.8.0
-- `eslint-plugin-no-barrel-files` >=1.2.0
-- `typescript-eslint` >=8.39.0
+- `@eslint/js`
+- `eslint`
+- `eslint-config-prettier`
+- `eslint-plugin-check-file`
+- `eslint-plugin-no-barrel-files`
+- `typescript-eslint`
+
+See [package.json](./package.json) for specific version requirements.
 
 ## Plugins
 

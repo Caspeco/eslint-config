@@ -109,16 +109,7 @@ export default [{ ignores: ["dist/**/*"] }, ...config];
 - **Old:** Named imports (`vanillaConfig`, `reactConfig`)
 - **New:** Default import (`config` or any name you choose)
 
-### 3. Package Independence
-
-- **Old:** Single package with both configs
-- **New:** Separate packages - install only what you need
-
-### 4. React Package Extends TypeScript Package
-
-In v4.x, the React config extended the vanilla config within the same package. In v5.x, `@caspeco/eslint-config-react` depends on and extends `@caspeco/eslint-config-ts` - when you install the React package, the TypeScript package is automatically installed as a dependency. This ensures both packages always use the same TypeScript rules without drift.
-
-### 5. Plugin Namespace Change (React Only)
+### 3. Plugin Namespace Change (React Only)
 
 The Caspeco custom plugin has been renamed:
 

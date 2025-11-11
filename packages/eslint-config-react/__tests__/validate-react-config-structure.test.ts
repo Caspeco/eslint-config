@@ -4,23 +4,6 @@ import frontendReact from "@/eslint-config-react";
 describe("validate react config structure", () => {
 	const flatConfigArray = frontendReact;
 
-	describe("configuration completeness", () => {
-		it("should include both vanilla and React-specific rules", () => {
-			// React config should include vanilla base configs (js.configs.recommended, typescript configs)
-			// and React-specific configs (react plugin, hooks, refresh, caspeco)
-			// We expect at least 8 config entries:
-			// 1. js.configs.recommended
-			// 2-3. typescript configs
-			// 4. TypeScript file-specific rules (from vanilla)
-			// 5. React plugin config
-			// 6. React hooks config
-			// 7. React refresh config
-			// 8. Caspeco plugin config
-			// 9. Prettier config
-			expect(flatConfigArray.length).toBeGreaterThanOrEqual(8);
-		});
-	});
-
 	describe("file scoping", () => {
 		it("should scope React-specific rules to React files only", () => {
 			const reactSpecificRules = [

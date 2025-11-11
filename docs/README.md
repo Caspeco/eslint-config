@@ -16,10 +16,6 @@ This monorepo contains shared ESLint configurations for TypeScript projects acro
 
 Upgrading from v4.x? See the [Migration Guide](/migration.md).
 
-## Plugins
-
-- [Caspeco React](plugins/caspeco-react.md)
-
 ## Contributing
 
 Please run `npm install` before any other commands below.
