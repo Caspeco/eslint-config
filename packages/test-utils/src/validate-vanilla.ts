@@ -1,6 +1,13 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
 import { assertHasEslintError } from "./utils/has-eslint-error";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const VANILLA_FIXTURES_PATH = join(__dirname, "fixtures/vanilla");
 
 export function createVanillaTests(
 	overrideConfig: eslint.Linter.Config<eslint.Linter.RulesRecord>[],
@@ -13,9 +20,10 @@ export function createVanillaTests(
 					const cli = new eslint.ESLint({
 						overrideConfig,
 						overrideConfigFile: true,
+						cwd: fixturesPath,
 					});
 
-					const result = await cli.lintFiles(`${fixturesPath}/frontend.ts`);
+					const result = await cli.lintFiles("frontend.ts");
 					assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 					assertHasEslintError(result, "@typescript-eslint/no-unsafe-assignment");
 					assertHasEslintError(result, "no-var");
@@ -26,9 +34,10 @@ export function createVanillaTests(
 					const cli = new eslint.ESLint({
 						overrideConfig,
 						overrideConfigFile: true,
+						cwd: fixturesPath,
 					});
 
-					const result = await cli.lintFiles(`${fixturesPath}/invalidFileName.ts`);
+					const result = await cli.lintFiles("invalidFileName.ts");
 					assertHasEslintError(result, "check-file/filename-naming-convention");
 				});
 			});
@@ -39,9 +48,10 @@ export function createVanillaTests(
 				const cli = new eslint.ESLint({
 					overrideConfig,
 					overrideConfigFile: true,
+					cwd: fixturesPath,
 				});
 
-				const result = await cli.lintFiles(`${fixturesPath}/frontend.ts`);
+				const result = await cli.lintFiles("frontend.ts");
 				assertHasEslintError(result, "no-barrel-files/no-barrel-files");
 			});
 		});

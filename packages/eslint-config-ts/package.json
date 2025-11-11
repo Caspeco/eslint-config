@@ -26,6 +26,9 @@
 		"typescript",
 		"caspeco"
 	],
+	"devDependencies": {
+		"@caspeco/test-utils": "*"
+	},
 	"peerDependencies": {
 		"@eslint/js": ">=9",
 		"eslint": ">=9",
