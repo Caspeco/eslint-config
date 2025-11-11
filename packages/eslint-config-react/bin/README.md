@@ -19,7 +19,7 @@ npx caspeco-react-migrate-v5 .
 
 ### What it does
 
-- Updates rule names: `caspeco-react/discourage-chakra-import` → `caspeco-react/discourage-chakra-import`
+- Updates rule names: `caspeco/discourage-chakra-import` → `caspeco-react/discourage-chakra-import`
 - Fixes ESLint disable comments
 - Updates config files
 - Processes `.js`, `.jsx`, `.ts`, `.tsx`, `.json`, and `.md` files

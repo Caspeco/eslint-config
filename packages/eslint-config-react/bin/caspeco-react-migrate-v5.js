@@ -4,16 +4,16 @@
  * Migration script for renaming caspeco plugin to caspeco-react
  *
  * This script updates:
- * - Rule names: caspeco-react/discourage-chakra-import → caspeco-react/discourage-chakra-import
+ * - Rule names: caspeco/discourage-chakra-import → caspeco-react/discourage-chakra-import
  * - ESLint disable comments
  * - ESLint config files
  *
  * Usage:
- *   node scripts/migrate-caspeco-plugin.js [path] [--dry-run]
+ *   npx caspeco-react-migrate-v5 [path] [--dry-run]
  *
  * Examples:
- *   node scripts/migrate-caspeco-plugin.js src/
- *   node scripts/migrate-caspeco-plugin.js . --dry-run
+ *   npx caspeco-react-migrate-v5 src/
+ *   npx caspeco-react-migrate-v5 . --dry-run
  */
 
 import fs from 'fs';
