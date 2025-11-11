@@ -1,8 +1,8 @@
-# Plugin: Caspeco
+# Plugin: Caspeco React
 
 ## Rules
 
-### `caspeco/discourage-chakra-import`
+### `caspeco-react/discourage-chakra-import`
 
 #### Why We Discourage Importing Chakra Files
 

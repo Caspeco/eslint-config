@@ -1,4 +1,4 @@
-import reactConfig from "./../../../src/frontend-react.js";
+import reactConfig from "./../../../src/index.js";
 
 const config = [
   ...reactConfig

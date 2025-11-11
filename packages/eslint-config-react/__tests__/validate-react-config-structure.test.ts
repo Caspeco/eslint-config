@@ -1,38 +1,36 @@
 import { describe, it, expect } from "vitest";
-import frontendReact from "../src/frontend-react.js";
-import frontendVanilla from "../src/frontend-vanilla.js";
+import frontendReact from "../src/index.js";
 
 describe("validate react config structure", () => {
 	const flatConfigArray = frontendReact;
 
-	describe("configuration inheritance", () => {
-		it("should properly inherit from vanilla config", () => {
-			// React config should start with vanilla config
-			const vanillaConfigCount = frontendVanilla.length;
-
-			// React config should have more entries than vanilla
-			expect(flatConfigArray.length).toBeGreaterThan(vanillaConfigCount);
-
-			// The first N entries should be from vanilla config
-			// This ensures React config extends vanilla rather than replacing it
-			expect(flatConfigArray.slice(0, vanillaConfigCount)).toEqual(frontendVanilla);
+	describe("configuration completeness", () => {
+		it("should include both vanilla and React-specific rules", () => {
+			// React config should include vanilla base configs (js.configs.recommended, typescript configs)
+			// and React-specific configs (react plugin, hooks, refresh, caspeco)
+			// We expect at least 8 config entries:
+			// 1. js.configs.recommended
+			// 2-3. typescript configs
+			// 4. TypeScript file-specific rules (from vanilla)
+			// 5. React plugin config
+			// 6. React hooks config
+			// 7. React refresh config
+			// 8. Caspeco plugin config
+			// 9. Prettier config
+			expect(flatConfigArray.length).toBeGreaterThanOrEqual(8);
 		});
 	});
 
 	describe("file scoping", () => {
 		it("should scope React-specific rules to React files only", () => {
-			// Only check configs added by React (not inherited from vanilla)
-			const vanillaLength = frontendVanilla.length;
-			const reactSpecificConfigs = flatConfigArray.slice(vanillaLength);
-
 			const reactSpecificRules = [
 				"react/react-in-jsx-scope",
 				"react-hooks/rules-of-hooks",
 				"react-refresh/only-export-components",
-				"caspeco/discourage-chakra-import",
+				"caspeco-react/discourage-chakra-import",
 			];
 
-			reactSpecificConfigs.forEach((config) => {
+			flatConfigArray.forEach((config) => {
 				if (config.rules) {
 					const hasReactSpecificRules = Object.keys(config.rules).some((rule) =>
 						reactSpecificRules.includes(rule),

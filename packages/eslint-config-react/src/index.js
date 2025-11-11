@@ -1,14 +1,64 @@
-import frontendVanilla from "./frontend-vanilla.js";
+import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
+import js from "@eslint/js";
+import checkFile from "eslint-plugin-check-file";
+import eslintConfigPrettier from "eslint-config-prettier";
+import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import caspecoPlugin from "./plugins/caspeco.js";
+import caspecoReactPlugin from "./plugins/caspeco-react.js";
 import globals from "globals";
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
 const flatConfig = [
-	...frontendVanilla,
-	// React plugin recommended config (single object)
+	// Base JavaScript/TypeScript configs (from vanilla)
+	js.configs.recommended,
+	...typescriptEslintConfig.recommendedTypeChecked,
+	{
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				// @ts-ignore
+				tsconfigRootDir: import.meta.name,
+			},
+		},
+	},
+	// TypeScript file-specific rules (from vanilla)
+	{
+		files: ["**/*.ts", "**/*.tsx"],
+		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
+		linterOptions: {
+			reportUnusedDisableDirectives: "warn",
+		},
+		languageOptions: {
+			parser: parser,
+			sourceType: "module",
+		},
+		plugins: {
+			"@typescript-eslint": plugin,
+			"check-file": checkFile,
+			"no-barrel-files": noBarrelFilesPlugin,
+		},
+		rules: {
+			"no-barrel-files/no-barrel-files": "error",
+			"check-file/filename-naming-convention": [
+				"error",
+				{
+					"**/*.{js,ts,tsx}": "KEBAB_CASE",
+				},
+				{
+					ignoreMiddleExtensions: true,
+				},
+			],
+			"check-file/folder-naming-convention": [
+				"error",
+				{
+					"src/**/": "KEBAB_CASE",
+				},
+			],
+		},
+	},
+	// React plugin recommended config
 	{
 		...reactPlugin.configs.flat?.recommended,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
@@ -35,7 +85,7 @@ const flatConfig = [
 			"react/display-name": "off",
 		},
 	},
-	// React hooks plugin recommended config (single object)
+	// React hooks plugin recommended config
 	{
 		...reactHooksPlugin.configs.recommended,
 		plugins: { "react-hooks": reactHooksPlugin },
@@ -49,7 +99,7 @@ const flatConfig = [
 			// ...reactHooksPlugin.configs.recommended.rules,
 		},
 	},
-	// React refresh plugin config (single object)
+	// React refresh plugin config
 	{
 		...reactRefresh.configs.recommended,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
@@ -58,16 +108,18 @@ const flatConfig = [
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		},
 	},
-	// Additional custom rules
+	// Caspeco React custom rules
 	{
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 		plugins: {
-			caspeco: caspecoPlugin,
+			"caspeco-react": caspecoReactPlugin,
 		},
 		rules: {
-			"caspeco/discourage-chakra-import": "error",
+			"caspeco-react/discourage-chakra-import": "error",
 		},
 	},
+	// Prettier config (must be last from vanilla)
+	eslintConfigPrettier,
 ];
 
 export default flatConfig;

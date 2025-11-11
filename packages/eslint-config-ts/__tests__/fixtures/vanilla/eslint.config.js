@@ -1,4 +1,4 @@
-import vanillaConfig from "./../../../src/frontend-vanilla.js";
+import vanillaConfig from "./../../../src/index.js";
 
 const config = [
   ...vanillaConfig

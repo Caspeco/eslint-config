@@ -1,6 +1,7 @@
 {
 	"name": "@caspeco/eslint-config",
-	"version": "4.0.5",
+	"version": "5.0.0",
+	"private": true,
 	"homepage": "https://github.com/Caspeco/eslint-config#readme",
 	"bugs": {
 		"url": "https://github.com/Caspeco/eslint-config/issues"
@@ -10,23 +11,26 @@
 	},
 	"license": "MIT",
 	"type": "module",
-	"main": "src/index.js",
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
-		"ci-test": "CI=true vitest",
+		"ci-test": "CI=true npm run test -ws",
 		"docs:preview": "docsify serve docs",
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
-		"test": "vitest",
+		"test": "npm run test -ws",
+		"test:ts": "npm run test -w packages/eslint-config-ts",
+		"test:react": "npm run test -w packages/eslint-config-react",
 		"tsc": "tsc",
-		"verify-deps": "node scripts/verify-versions.ts eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh globals",
-		"verify-package-sort-order": "sort-package-json 'package.json' --check",
-		"verify-package-sort-order:fix": "sort-package-json 'package.json'"
+		"verify-deps": "node scripts/verify-versions.ts",
+		"verify-package-sort-order": "sort-package-json 'package.json' 'packages/*/package.json' --check",
+		"verify-package-sort-order:fix": "sort-package-json 'package.json' 'packages/*/package.json'"
 	},
 	"prettier": "@caspeco/prettier-config",
-	"eslintConfig": {
-		"extends": "."
-	},
 	"devDependencies": {
+		"@babel/core": "^7.28.5",
+		"@babel/parser": "^7.28.5",
 		"@caspeco/prettier-config": "1.0.7",
 		"@eslint/js": "^9.39.1",
 		"@types/eslint": "9.6.1",
@@ -44,31 +48,12 @@
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"sort-package-json": "^3.4.0",
+		"typescript-eslint": "^8.39.0",
 		"vite": "7.2.2",
 		"vitest": "^4.0.8"
-	},
-	"peerDependencies": {
-		"@eslint/js": ">=9",
-		"eslint": ">=9",
-		"eslint-config-prettier": ">=9",
-		"eslint-plugin-check-file": ">=2.8.0",
-		"eslint-plugin-no-barrel-files": ">=1.2.0",
-		"typescript-eslint": ">=8.39.0"
-	},
-	"optionalDependencies": {
-		"@babel/core": ">=7.24.4",
-		"@babel/parser": ">=7.24.4",
-		"@rollup/rollup-linux-x64-gnu": ">=4.53.2",
-		"eslint-plugin-react": "7.37.5",
-		"eslint-plugin-react-hooks": "7.0.1",
-		"eslint-plugin-react-refresh": "0.4.24",
-		"globals": "16.5.0"
 	},
 	"engines": {
 		"node": ">=24",
 		"npm": ">=11.5.1"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

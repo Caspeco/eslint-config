@@ -23,9 +23,9 @@ To use this configuration you'll need `eslint.config.js` file in your project ro
 
 For details, see [frontend-react.js](https://github.com/Caspeco/eslint-config/blob/main/src/frontend-react.js).
 
-### caspeco-plugin
+### caspeco-react-plugin
 
-[caspeco-plugin](/plugins/caspeco.md)
+[caspeco-react-plugin](/plugins/caspeco.md)
 
 ### eslint-react-plugin
 
