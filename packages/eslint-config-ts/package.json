@@ -20,8 +20,12 @@
 	"license": "MIT",
 	"type": "module",
 	"main": "src/index.js",
+	"bin": {
+		"caspeco-ts-migrate-v5": "./bin/caspeco-ts-migrate-v5.js"
+	},
 	"files": [
-		"src"
+		"src",
+		"bin"
 	],
 	"scripts": {
 		"test": "vitest"

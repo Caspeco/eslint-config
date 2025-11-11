@@ -18,6 +18,14 @@ import config from "@caspeco/eslint-config-ts";
 export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
 ```
 
+## Migration from v4.x
+
+Upgrading from `@caspeco/eslint-config` v4.x? See the [Migration Guide](/migration.md) or use the automated migration tool:
+
+```bash
+npx caspeco-ts-migrate-v5 .
+```
+
 ## Plugins
 
 For implementation details, see [index.js](https://github.com/Caspeco/eslint-config/blob/main/packages/eslint-config-ts/src/index.js).

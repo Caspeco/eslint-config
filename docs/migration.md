@@ -7,7 +7,31 @@ Version 5.0.0 introduces a monorepo structure with separate packages for TypeScr
 - `@caspeco/eslint-config-ts` - For TypeScript projects
 - `@caspeco/eslint-config-react` - For React + TypeScript projects
 
-## Migration Steps
+## Automated Migration Tools
+
+We provide migration scripts to automatically update your imports and package references:
+
+### For TypeScript (Vanilla) Projects
+
+```bash
+# Preview changes (dry run)
+npx caspeco-ts-migrate-v5 . --dry-run
+
+# Apply changes
+npx caspeco-ts-migrate-v5 .
+```
+
+### For React Projects
+
+```bash
+# Preview changes (dry run)
+npx caspeco-react-migrate-v5 src/ --dry-run
+
+# Apply changes
+npx caspeco-react-migrate-v5 src/
+```
+
+## Manual Migration Steps
 
 ### For TypeScript (Vanilla) Projects
 
@@ -101,42 +125,21 @@ The Caspeco custom plugin has been renamed:
 - **Old:** `caspeco/discourage-chakra-import`
 - **New:** `caspeco-react/discourage-chakra-import`
 
-## Automated Migration for React Projects
+## What the Migration Scripts Do
 
-If you're migrating to `@caspeco/eslint-config-react`, we provide an automated migration script to update rule names in your codebase.
+### TypeScript Migration Script (`caspeco-ts-migrate-v5`)
 
-### Using the Migration Script
+- Updates package imports: `@caspeco/eslint-config` → `@caspeco/eslint-config-ts`
+- Changes named imports: `{ vanillaConfig }` → default import `config`
+- Updates variable references: `vanillaConfig` → `config`
 
-After installing the new package, run:
+### React Migration Script (`caspeco-react-migrate-v5`)
 
-```bash
-npx caspeco-react-migrate-v5 src/ --dry-run
-```
-
-This will show you what changes will be made without modifying files. To apply the changes:
-
-```bash
-npx caspeco-react-migrate-v5 src/
-```
-
-**What it does:**
-
-- Updates `caspeco/discourage-chakra-import` → `caspeco-react/discourage-chakra-import`
+- Updates package imports: `@caspeco/eslint-config` → `@caspeco/eslint-config-react`
+- Changes named imports: `{ reactConfig }` → default import `config`
+- Updates variable references: `reactConfig` → `config`
+- Updates plugin rule names: `caspeco/discourage-chakra-import` → `caspeco-react/discourage-chakra-import`
 - Fixes ESLint disable comments
-- Updates config files
-
-**Options:**
-
-```bash
-# Scan and update specific directory
-npx caspeco-react-migrate-v5 src/
-
-# Scan entire project
-npx caspeco-react-migrate-v5 .
-
-# Dry run (preview changes)
-npx caspeco-react-migrate-v5 . --dry-run
-```
 
 ## Why This Change?
 

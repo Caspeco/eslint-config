@@ -1,21 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * Migration script for v4.x to v5.x
+ * Migration script for v4.x to v5.x (TypeScript/Vanilla)
  *
  * This script updates:
- * - Package imports: @caspeco/eslint-config → @caspeco/eslint-config-react
- * - Named imports: { reactConfig } → default import
- * - Variable references: reactConfig → config
- * - Rule names: caspeco/discourage-chakra-import → caspeco-react/discourage-chakra-import
- * - ESLint disable comments
+ * - Package imports: @caspeco/eslint-config → @caspeco/eslint-config-ts
+ * - Named imports: { vanillaConfig } → default import
+ * - Variable references: vanillaConfig → config
  *
  * Usage:
- *   npx caspeco-react-migrate-v5 [path] [--dry-run]
+ *   npx caspeco-ts-migrate-v5 [path] [--dry-run]
  *
  * Examples:
- *   npx caspeco-react-migrate-v5 src/
- *   npx caspeco-react-migrate-v5 . --dry-run
+ *   npx caspeco-ts-migrate-v5 .
+ *   npx caspeco-ts-migrate-v5 . --dry-run
  */
 
 import fs from "fs";
@@ -29,15 +27,6 @@ const args = process.argv.slice(2);
 const isDryRun = args.includes("--dry-run");
 const targetPath = args.find((arg) => !arg.startsWith("--")) || ".";
 
-// Patterns to search and replace
-const replacements = [
-	{
-		pattern: /caspeco\/discourage-chakra-import/g,
-		replacement: "caspeco-react/discourage-chakra-import",
-		description: "Rule name",
-	},
-];
-
 // Import transformation for eslint.config.js files
 function transformImports(content, filename) {
 	if (!filename.includes("eslint.config.")) {
@@ -47,14 +36,14 @@ function transformImports(content, filename) {
 	let transformed = content;
 	let hasChanges = false;
 
-	// Replace import { reactConfig } from "@caspeco/eslint-config" → import config from "@caspeco/eslint-config-react"
-	const importPattern = /import\s*\{\s*reactConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
+	// Replace import { vanillaConfig } from "@caspeco/eslint-config" → import config from "@caspeco/eslint-config-ts"
+	const importPattern = /import\s*\{\s*vanillaConfig\s*\}\s*from\s*["']@caspeco\/eslint-config["']/;
 	if (importPattern.test(transformed)) {
-		transformed = transformed.replace(importPattern, 'import config from "@caspeco/eslint-config-react"');
+		transformed = transformed.replace(importPattern, 'import config from "@caspeco/eslint-config-ts"');
 		hasChanges = true;
 
 		// If we changed the import, also update variable references
-		transformed = transformed.replace(/\breactConfig\b/g, "config");
+		transformed = transformed.replace(/\bvanillaConfig\b/g, "config");
 	}
 
 	return { content: transformed, hasChanges };
@@ -108,21 +97,12 @@ function processFile(filePath) {
 	let newContent = content;
 	let fileReplacements = 0;
 
-	// First, try import transformations for config files
+	// Try import transformations for config files
 	const filename = path.basename(filePath);
 	const importResult = transformImports(newContent, filename);
 	if (importResult.hasChanges) {
 		newContent = importResult.content;
 		fileReplacements++; // Count as one logical replacement (import + references)
-	}
-
-	// Then apply all other replacement patterns
-	for (const { pattern, replacement } of replacements) {
-		const matches = newContent.match(pattern);
-		if (matches) {
-			fileReplacements += matches.length;
-			newContent = newContent.replace(pattern, replacement);
-		}
 	}
 
 	// If changes were made
@@ -149,8 +129,8 @@ function processFile(filePath) {
  * Main execution
  */
 function main() {
-	console.log("Caspeco Plugin Migration Tool");
-	console.log("==============================\n");
+	console.log("Caspeco TypeScript Migration Tool");
+	console.log("==================================\n");
 
 	if (isDryRun) {
 		console.log("🔍 Running in DRY RUN mode - no files will be modified\n");
