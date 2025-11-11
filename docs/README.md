@@ -35,22 +35,46 @@ This is an npm workspaces monorepo with multiple packages:
 
 To publish a new version:
 
-1. Update the version in all package.json files (root + packages)
-2. Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
-3. Click "Draft a new release"
-4. Enter the version (skip the `v` prefix)
-5. Publish
+1. Go to [Github Releases](https://github.com/Caspeco/eslint-config/releases)
+2. Click "Draft a new release"
+3. Enter the version as the tag (e.g., `5.0.0` or `5.0.0-beta.1`)
+4. Write release notes
+5. Click "Publish release"
 
-The GitHub Action will publish all packages to npm.
+The GitHub Action will automatically:
 
-### Publish a preview to NPM
+- Update all package.json versions to match the release tag
+- Update inter-workspace dependencies
+- Publish all packages to npm with matching versions
+
+**Note:** All packages (`@caspeco/eslint-config-ts` and `@caspeco/eslint-config-react`) are published with the same version number using fixed/locked versioning.
+
+### Publish a Preview Manually
+
+If you need to publish a preview/beta version manually:
 
 ```bash
-# From root - publishes all workspace packages
+# 1. Update versions locally
+npm run update-versions 5.0.0-beta.1
+
+# 2. Publish all workspace packages with 'next' tag
 npm publish -ws --access public --tag next
 ```
 
 This requires you to be a collaborator on the NPM packages.
+
+### Update Versions Locally
+
+To update all package versions without publishing:
+
+```bash
+npm run update-versions 5.0.0
+
+# This updates:
+# - All package.json versions
+# - Inter-workspace dependencies
+# - Does NOT commit or publish
+```
 
 ## Documentation
 

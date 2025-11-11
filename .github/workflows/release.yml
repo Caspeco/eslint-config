@@ -25,15 +25,20 @@ jobs:
 
       - run: npm ci
 
-      - run: npm version ${TAG_NAME} --git-tag-version=false --allow-same-version
+      - name: Update all workspace package versions
+        run: node scripts/update-versions.ts ${TAG_NAME}
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
 
-      - name: Delete engines field from package.json
-        run: npm pkg delete engines
+      - name: Delete engines field from all packages
+        run: |
+          npm pkg delete engines
+          npm pkg delete engines -w packages/eslint-config-ts
+          npm pkg delete engines -w packages/eslint-config-react
+          npm pkg delete engines -w packages/test-utils
 
-      - name: Publish to npm with trusted publishing
-        run: npm --ignore-scripts publish --access public --provenance
+      - name: Publish all packages to npm with trusted publishing
+        run: npm --ignore-scripts publish -ws --access public --provenance
 
   notify:
     name: Notify

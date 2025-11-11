@@ -32,7 +32,7 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"@caspeco/eslint-config-ts": "^5.0.0"
+		"@caspeco/eslint-config-ts": "5.0.0"
 	},
 	"devDependencies": {
 		"@caspeco/test-utils": "*"
