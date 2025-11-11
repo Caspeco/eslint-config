@@ -52,20 +52,15 @@ This configuration includes everything from our TypeScript config plus React-spe
 
 ## Peer Dependencies
 
-This package requires the following peer dependencies:
+This package requires the following peer dependencies (automatically installed by npm 7+):
 
-- `@babel/core` >=7.24.4
-- `@babel/parser` >=7.24.4
-- `@eslint/js` >=9
 - `eslint` >=9
-- `eslint-config-prettier` >=9
-- `eslint-plugin-check-file` >=2.8.0
-- `eslint-plugin-no-barrel-files` >=1.2.0
 - `eslint-plugin-react` >=7.37.0
 - `eslint-plugin-react-hooks` >=7
 - `eslint-plugin-react-refresh` >=0.4.0
 - `globals` >=15
-- `typescript-eslint` >=8.39.0
+
+**Note:** Additional TypeScript-related peer dependencies are inherited from `@caspeco/eslint-config-ts` (installed automatically as a regular dependency).
 
 ## Plugins
 
@@ -102,7 +97,7 @@ Custom React-specific plugin with Caspeco rules:
 
 ## Relationship with @caspeco/eslint-config-ts
 
-This package includes all TypeScript rules inlined - you don't need to install both packages. If you're building a React project, use this package. For vanilla TypeScript projects, use `@caspeco/eslint-config-ts`.
+This package depends on and extends `@caspeco/eslint-config-ts`, which is automatically installed as a dependency. This ensures React projects always use the same TypeScript rules without drift. If you're building a React project, use this package. For vanilla TypeScript projects, use `@caspeco/eslint-config-ts`.
 
 ## License
 
