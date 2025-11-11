@@ -4,12 +4,12 @@
 	"private": true,
 	"description": "Shared test utilities for Caspeco ESLint config packages",
 	"type": "module",
-	"main": "src/validate-vanilla.ts",
 	"exports": {
 		".": "./src/validate-vanilla.ts",
 		"./utils/has-eslint-error": "./src/utils/has-eslint-error.ts",
 		"./fixtures/vanilla": "./src/fixtures/vanilla"
 	},
+	"main": "src/validate-vanilla.ts",
 	"scripts": {
 		"test": "echo 'No tests - this is a utility package'"
 	}

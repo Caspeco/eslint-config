@@ -1,7 +1,5 @@
-import reactConfig from "./../../../src/index.js";
+import reactConfig from "@/eslint-config-react";
 
-const config = [
-  ...reactConfig
-];
+const config = [...reactConfig];
 
 export default config;

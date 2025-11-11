@@ -5,5 +5,5 @@ import eslint from "eslint";
 // Tests are instantiated from shared helper to easier test inherited configs
 createVanillaTests(
 	frontendVanilla as eslint.Linter.Config<eslint.Linter.RulesRecord>[],
-	VANILLA_FIXTURES_PATH
+	VANILLA_FIXTURES_PATH,
 )();

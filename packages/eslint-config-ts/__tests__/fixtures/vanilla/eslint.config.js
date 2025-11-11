@@ -1,7 +1,5 @@
-import vanillaConfig from "./../../../src/index.js";
+import vanillaConfig from "@/eslint-config-ts";
 
-const config = [
-  ...vanillaConfig
-];
+const config = [...vanillaConfig];
 
 export default config;

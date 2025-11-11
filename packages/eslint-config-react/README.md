@@ -29,10 +29,7 @@ Create an `eslint.config.js` file in your project root:
 ```js
 import config from "@caspeco/eslint-config-react";
 
-export default [
-	{ ignores: ["dist/**/*", "build/**/*"] },
-	...config,
-];
+export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
 ```
 
 ## What's Included
@@ -40,12 +37,14 @@ export default [
 This configuration includes everything from our TypeScript config plus React-specific rules:
 
 ### Base TypeScript Configuration
+
 - **TypeScript ESLint** - recommended-type-checked config
 - **No Barrel Files** - Prevents barrel file usage
 - **File Naming Conventions** - Enforces kebab-case for files and folders
 - **Prettier Integration** - Compatible with Prettier formatting
 
 ### React-Specific Configuration
+
 - **React Plugin** - Core React linting rules
 - **React Hooks** - Enforces rules of hooks
 - **React Refresh** - Fast Refresh support for Vite/development
@@ -75,6 +74,7 @@ This package requires the following peer dependencies:
 [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
 
 Core React linting rules with the following customizations:
+
 - `react-in-jsx-scope`: off (not needed in modern React)
 - `prop-types`: off (using TypeScript instead)
 - `display-name`: off
@@ -84,6 +84,7 @@ Core React linting rules with the following customizations:
 [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 
 Enforces:
+
 - Rules of Hooks (error)
 - Exhaustive dependencies (warning)
 
@@ -96,6 +97,7 @@ Ensures components are compatible with Fast Refresh in development.
 ### caspeco-react-plugin
 
 Custom React-specific plugin with Caspeco rules:
+
 - Discourages direct imports from `@chakra-ui/react` (use themed components instead)
 
 ## Relationship with @caspeco/eslint-config-ts

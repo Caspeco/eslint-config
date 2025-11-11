@@ -67,5 +67,5 @@ describe("validate react config", () => {
 // Also run the vanilla tests with the React config (inherits the vanilla config)
 createVanillaTests(
 	frontendReact as eslint.Linter.Config<eslint.Linter.RulesRecord>[],
-	VANILLA_FIXTURES_PATH
+	VANILLA_FIXTURES_PATH,
 )();

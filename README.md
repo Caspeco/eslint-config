@@ -7,6 +7,7 @@ Monorepo for Caspeco's ESLint configurations.
 This repository contains two ESLint configuration packages:
 
 ### [@caspeco/eslint-config-ts](./packages/eslint-config-ts)
+
 ESLint configuration for TypeScript projects.
 
 ```bash
@@ -14,6 +15,7 @@ npm install --save-dev @caspeco/eslint-config-ts
 ```
 
 ### [@caspeco/eslint-config-react](./packages/eslint-config-react)
+
 ESLint configuration for React + TypeScript projects.
 
 ```bash

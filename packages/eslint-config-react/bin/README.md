@@ -27,6 +27,7 @@ npx caspeco-react-migrate-v5 .
 ### Files processed
 
 The script automatically:
+
 - Skips `node_modules`, `.git`, `dist`, `build`, and `coverage` directories
 - Recursively processes all supported file types
 - Shows a summary of changes made

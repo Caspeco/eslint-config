@@ -2,6 +2,13 @@
 	"name": "@caspeco/eslint-config-react",
 	"version": "5.0.0",
 	"description": "Caspeco ESLint configuration for React projects",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"react",
+		"typescript",
+		"caspeco"
+	],
 	"homepage": "https://github.com/Caspeco/eslint-config#readme",
 	"bugs": {
 		"url": "https://github.com/Caspeco/eslint-config/issues"
@@ -24,13 +31,6 @@
 	"scripts": {
 		"test": "vitest"
 	},
-	"keywords": [
-		"eslint",
-		"eslint-config",
-		"react",
-		"typescript",
-		"caspeco"
-	],
 	"devDependencies": {
 		"@caspeco/test-utils": "*"
 	},

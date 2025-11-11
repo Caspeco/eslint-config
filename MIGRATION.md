@@ -12,6 +12,7 @@ Version 5.0.0 introduces a monorepo structure with separate packages for TypeScr
 ### For TypeScript (Vanilla) Projects
 
 **Before (v4.x):**
+
 ```bash
 npm install --save-dev @caspeco/eslint-config
 ```
@@ -20,13 +21,11 @@ npm install --save-dev @caspeco/eslint-config
 // eslint.config.js
 import { vanillaConfig } from "@caspeco/eslint-config";
 
-export default [
-  { ignores: ["dist/**/*"] },
-  ...vanillaConfig,
-];
+export default [{ ignores: ["dist/**/*"] }, ...vanillaConfig];
 ```
 
 **After (v5.x):**
+
 ```bash
 # Uninstall old package
 npm uninstall @caspeco/eslint-config
@@ -39,15 +38,13 @@ npm install --save-dev @caspeco/eslint-config-ts
 // eslint.config.js
 import config from "@caspeco/eslint-config-ts";
 
-export default [
-  { ignores: ["dist/**/*"] },
-  ...config,
-];
+export default [{ ignores: ["dist/**/*"] }, ...config];
 ```
 
 ### For React Projects
 
 **Before (v4.x):**
+
 ```bash
 npm install --save-dev @caspeco/eslint-config
 ```
@@ -56,13 +53,11 @@ npm install --save-dev @caspeco/eslint-config
 // eslint.config.js
 import { reactConfig } from "@caspeco/eslint-config";
 
-export default [
-  { ignores: ["dist/**/*"] },
-  ...reactConfig,
-];
+export default [{ ignores: ["dist/**/*"] }, ...reactConfig];
 ```
 
 **After (v5.x):**
+
 ```bash
 # Uninstall old package
 npm uninstall @caspeco/eslint-config
@@ -75,31 +70,34 @@ npm install --save-dev @caspeco/eslint-config-react
 // eslint.config.js
 import config from "@caspeco/eslint-config-react";
 
-export default [
-  { ignores: ["dist/**/*"] },
-  ...config,
-];
+export default [{ ignores: ["dist/**/*"] }, ...config];
 ```
 
 ## Key Differences
 
 ### 1. Package Names
+
 - Old: `@caspeco/eslint-config`
 - New: `@caspeco/eslint-config-ts` or `@caspeco/eslint-config-react`
 
 ### 2. Import Syntax
+
 - **Old:** Named imports (`vanillaConfig`, `reactConfig`)
 - **New:** Default import (`config` or any name you choose)
 
 ### 3. Package Independence
+
 - **Old:** Single package with both configs
 - **New:** Separate packages - install only what you need
 
 ### 4. React Package is Standalone
+
 In v4.x, the React config extended the vanilla config. In v5.x, `@caspeco/eslint-config-react` includes all TypeScript rules inlined - you don't need to install both packages.
 
 ### 5. Plugin Namespace Change (React Only)
+
 The Caspeco custom plugin has been renamed:
+
 - **Old:** `caspeco/discourage-chakra-import`
 - **New:** `caspeco-react/discourage-chakra-import`
 
@@ -122,11 +120,13 @@ npx caspeco-react-migrate-v5 src/
 ```
 
 **What it does:**
+
 - Updates `caspeco/discourage-chakra-import` → `caspeco-react/discourage-chakra-import`
 - Fixes ESLint disable comments
 - Updates config files
 
 **Options:**
+
 ```bash
 # Scan and update specific directory
 npx caspeco-react-migrate-v5 src/
@@ -141,6 +141,7 @@ npx caspeco-react-migrate-v5 . --dry-run
 ## Why This Change?
 
 ### Benefits:
+
 1. **Smaller Dependencies** - Install only what you need for your project type
 2. **Clearer Separation** - TypeScript and React configs are completely independent
 3. **Better Versioning** - Each package can be versioned independently
@@ -153,6 +154,7 @@ The `@caspeco/eslint-config` v4.x package will be marked as deprecated. We recom
 ## Need Help?
 
 If you encounter issues during migration, please:
+
 1. Check the README in each package for detailed usage instructions
 2. Open an issue on [GitHub](https://github.com/Caspeco/eslint-config/issues)
 

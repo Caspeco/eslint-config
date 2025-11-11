@@ -15,10 +15,7 @@ Create an `eslint.config.js` file in your project root:
 ```js
 import config from "@caspeco/eslint-config-ts";
 
-export default [
-	{ ignores: ["dist/**/*", "build/**/*"] },
-	...config,
-];
+export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
 ```
 
 ## What's Included
@@ -53,6 +50,7 @@ Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#rec
 [eslint-plugin-no-barrel-files](https://github.com/art0rz/eslint-plugin-no-barrel-files)
 
 We opt out of using barrel files as they can:
+
 - Slow down builds and tests
 - Cause circular dependencies
 - Make tree shaking more difficult
@@ -60,6 +58,7 @@ We opt out of using barrel files as they can:
 **Note:** We allow barrel files for libraries consumed as npm packages.
 
 More information:
+
 - [Please Stop Using Barrel Files](https://tkdodo.eu/blog/please-stop-using-barrel-files)
 
 ### eslint-plugin-check-file

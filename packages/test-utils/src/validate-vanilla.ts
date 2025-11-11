@@ -11,7 +11,7 @@ export const VANILLA_FIXTURES_PATH = join(__dirname, "fixtures/vanilla");
 
 export function createVanillaTests(
 	overrideConfig: eslint.Linter.Config<eslint.Linter.RulesRecord>[],
-	fixturesPath: string
+	fixturesPath: string,
 ) {
 	return () => {
 		describe("validate vanilla config", () => {
