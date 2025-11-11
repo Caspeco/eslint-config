@@ -1,0 +1,54 @@
+{
+	"name": "@caspeco/eslint-config-react",
+	"version": "5.0.0",
+	"description": "Caspeco ESLint configuration for React projects",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"react",
+		"typescript",
+		"caspeco"
+	],
+	"homepage": "https://github.com/Caspeco/eslint-config#readme",
+	"bugs": {
+		"url": "https://github.com/Caspeco/eslint-config/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Caspeco/eslint-config",
+		"directory": "packages/eslint-config-react"
+	},
+	"license": "MIT",
+	"type": "module",
+	"main": "src/index.js",
+	"bin": {
+		"caspeco-react-migrate-v5": "./bin/caspeco-react-migrate-v5.js"
+	},
+	"files": [
+		"src",
+		"bin"
+	],
+	"scripts": {
+		"test": "vitest"
+	},
+	"dependencies": {
+		"@caspeco/eslint-config-ts": "5.0.0"
+	},
+	"devDependencies": {
+		"@caspeco/test-utils": "*"
+	},
+	"peerDependencies": {
+		"eslint": ">=9",
+		"eslint-plugin-react": ">=7.37.0",
+		"eslint-plugin-react-hooks": ">=7",
+		"eslint-plugin-react-refresh": ">=0.4.0",
+		"globals": ">=15"
+	},
+	"engines": {
+		"node": ">=24",
+		"npm": ">=11.5.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

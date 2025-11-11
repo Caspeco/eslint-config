@@ -1,8 +1,8 @@
 import { describe, it } from "vitest";
 import eslint from "eslint";
 import frontendReact from "./fixtures/react/eslint.config";
-import { assertHasEslintError } from "./utils/has-eslint-error";
-import { createVanillaTests } from "./validate-vanilla.test";
+import { assertHasEslintError } from "@caspeco/test-utils/utils/has-eslint-error";
+import { createVanillaTests, VANILLA_FIXTURES_PATH } from "@caspeco/test-utils";
 
 describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
@@ -39,7 +39,7 @@ describe("validate react config", () => {
 		});
 	});
 
-	describe("caspeco/discourage-chakra-import", () => {
+	describe("caspeco-react/discourage-chakra-import", () => {
 		it("validates invalid chakra import", async function async() {
 			const cli = new eslint.ESLint({
 				overrideConfig: frontendReact as eslint.ESLint.Options["overrideConfig"],
@@ -47,7 +47,7 @@ describe("validate react config", () => {
 			});
 
 			const result = await cli.lintFiles("__tests__/fixtures/react/restricted-imports.tsx");
-			assertHasEslintError(result, "caspeco/discourage-chakra-import");
+			assertHasEslintError(result, "caspeco-react/discourage-chakra-import");
 		});
 	});
 
@@ -65,4 +65,7 @@ describe("validate react config", () => {
 });
 
 // Also run the vanilla tests with the React config (inherits the vanilla config)
-createVanillaTests(frontendReact as eslint.Linter.Config<eslint.Linter.RulesRecord>[])();
+createVanillaTests(
+	frontendReact as eslint.Linter.Config<eslint.Linter.RulesRecord>[],
+	VANILLA_FIXTURES_PATH,
+)();

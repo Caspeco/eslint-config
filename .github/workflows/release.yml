@@ -25,15 +25,20 @@ jobs:
 
       - run: npm ci
 
-      - run: npm version ${TAG_NAME} --git-tag-version=false --allow-same-version
+      - name: Update all workspace package versions
+        run: node scripts/update-versions.ts ${TAG_NAME}
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
 
-      - name: Delete engines field from package.json
-        run: npm pkg delete engines
+      - name: Delete engines field from all packages
+        run: |
+          npm pkg delete engines
+          npm pkg delete engines -w packages/eslint-config-ts
+          npm pkg delete engines -w packages/eslint-config-react
+          npm pkg delete engines -w packages/test-utils
 
-      - name: Publish to npm with trusted publishing
-        run: npm --ignore-scripts publish --access public --provenance
+      - name: Publish all packages to npm with trusted publishing
+        run: npm --ignore-scripts publish -ws --access public --provenance
 
   notify:
     name: Notify
@@ -45,11 +50,16 @@ jobs:
         with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
           TEXT: |
-            ## New version of Caspecos eslint-config was published.
-            New version: ${{ github.event.release.tag_name }}.
-            Author: ${{ github.event.release.author.login }}
+            ## 🚀 New version of Caspeco ESLint Config published
 
-            [Release details](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }})
+            **Version:** ${{ github.event.release.tag_name }}
+            **Author:** ${{ github.event.release.author.login }}
 
-            ## Changelog:
+            **Packages published:**
+            - [@caspeco/eslint-config-ts@${{ github.event.release.tag_name }}](https://www.npmjs.com/package/@caspeco/eslint-config-ts/v/${{ github.event.release.tag_name }})
+            - [@caspeco/eslint-config-react@${{ github.event.release.tag_name }}](https://www.npmjs.com/package/@caspeco/eslint-config-react/v/${{ github.event.release.tag_name }})
+
+            📝 [Release details](${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }})
+
+            ## Changelog
             ${{ github.event.release.body }}

@@ -4,5 +4,6 @@
 - Configurations
   - [Vanilla](configs/vanilla.md)
   - [React](configs/react.md)
+- [Migration](migration.md)
 - Plugins
-  - [Caspeco](plugins/caspeco.md)
+  - [Caspeco React](plugins/caspeco-react.md)

@@ -1,9 +1,18 @@
-import frontendVanilla from "./fixtures/vanilla/eslint.config";
 import { describe, it } from "vitest";
 import eslint from "eslint";
 import { assertHasEslintError } from "./utils/has-eslint-error";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
-export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.Linter.RulesRecord>[]) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const VANILLA_FIXTURES_PATH = join(__dirname, "fixtures/vanilla");
+
+export function createVanillaTests(
+	overrideConfig: eslint.Linter.Config<eslint.Linter.RulesRecord>[],
+	fixturesPath: string,
+) {
 	return () => {
 		describe("validate vanilla config", () => {
 			describe("general rules", () => {
@@ -11,9 +20,10 @@ export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.L
 					const cli = new eslint.ESLint({
 						overrideConfig,
 						overrideConfigFile: true,
+						cwd: fixturesPath,
 					});
 
-					const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
+					const result = await cli.lintFiles("frontend.ts");
 					assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 					assertHasEslintError(result, "@typescript-eslint/no-unsafe-assignment");
 					assertHasEslintError(result, "no-var");
@@ -24,9 +34,10 @@ export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.L
 					const cli = new eslint.ESLint({
 						overrideConfig,
 						overrideConfigFile: true,
+						cwd: fixturesPath,
 					});
 
-					const result = await cli.lintFiles("__tests__/fixtures/vanilla/invalidFileName.ts");
+					const result = await cli.lintFiles("invalidFileName.ts");
 					assertHasEslintError(result, "check-file/filename-naming-convention");
 				});
 			});
@@ -37,14 +48,12 @@ export function createVanillaTests(overrideConfig: eslint.Linter.Config<eslint.L
 				const cli = new eslint.ESLint({
 					overrideConfig,
 					overrideConfigFile: true,
+					cwd: fixturesPath,
 				});
 
-				const result = await cli.lintFiles("__tests__/fixtures/vanilla/frontend.ts");
+				const result = await cli.lintFiles("frontend.ts");
 				assertHasEslintError(result, "no-barrel-files/no-barrel-files");
 			});
 		});
 	};
 }
-
-// Tests are instansiated from vanilla-helper to easier test inherited configs
-createVanillaTests(frontendVanilla as eslint.Linter.Config<eslint.Linter.RulesRecord>[])();

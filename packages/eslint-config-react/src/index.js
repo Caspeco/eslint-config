@@ -1,14 +1,15 @@
-import frontendVanilla from "./frontend-vanilla.js";
+import tsConfig from "@caspeco/eslint-config-ts";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import caspecoPlugin from "./plugins/caspeco.js";
+import caspecoReactPlugin from "./plugins/caspeco-react.js";
 import globals from "globals";
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
 const flatConfig = [
-	...frontendVanilla,
-	// React plugin recommended config (single object)
+	// Extend the vanilla TypeScript config
+	...tsConfig,
+	// React plugin recommended config
 	{
 		...reactPlugin.configs.flat?.recommended,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
@@ -35,7 +36,7 @@ const flatConfig = [
 			"react/display-name": "off",
 		},
 	},
-	// React hooks plugin recommended config (single object)
+	// React hooks plugin recommended config
 	{
 		...reactHooksPlugin.configs.recommended,
 		plugins: { "react-hooks": reactHooksPlugin },
@@ -49,7 +50,7 @@ const flatConfig = [
 			// ...reactHooksPlugin.configs.recommended.rules,
 		},
 	},
-	// React refresh plugin config (single object)
+	// React refresh plugin config
 	{
 		...reactRefresh.configs.recommended,
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
@@ -58,14 +59,14 @@ const flatConfig = [
 			"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		},
 	},
-	// Additional custom rules
+	// Caspeco React custom rules
 	{
 		files: ["**/*.ts", "**/*.tsx", "**/*.jsx"],
 		plugins: {
-			caspeco: caspecoPlugin,
+			"caspeco-react": caspecoReactPlugin,
 		},
 		rules: {
-			"caspeco/discourage-chakra-import": "error",
+			"caspeco-react/discourage-chakra-import": "error",
 		},
 	},
 ];

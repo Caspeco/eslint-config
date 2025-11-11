@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import frontendVanilla from "../src/frontend-vanilla.js";
+import frontendVanilla from "@/eslint-config-ts";
 
 describe("validate vanilla config structure", () => {
 	const flatConfigArray = frontendVanilla;

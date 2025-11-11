@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"target": "ES2020",
 		"allowJs": true,
-		"checkJs": true,
 		"useDefineForClassFields": true,
 		"module": "ESNext",
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -19,20 +18,9 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-
-		/* Path aliases */
-		"baseUrl": ".",
-		"paths": {
-			"@/eslint-config-ts": ["./packages/eslint-config-ts/src/index.js"],
-			"@/eslint-config-react": ["./packages/eslint-config-react/src/index.js"]
-		}
+		"noFallthroughCasesInSwitch": true
 	},
 	"include": [
-		"packages/*/src/**/*.js",
-		"packages/*/__tests__/**/*.ts",
-		"packages/*/__tests__/**/*.tsx",
-		"scripts/verify-versions.ts"
-	],
-	"exclude": ["packages/*/__tests__/fixtures/**/*"]
+		"./**/*"
+	]
 }

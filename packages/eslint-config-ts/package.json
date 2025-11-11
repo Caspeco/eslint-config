@@ -1,0 +1,51 @@
+{
+	"name": "@caspeco/eslint-config-ts",
+	"version": "5.0.0",
+	"description": "Caspeco ESLint configuration for TypeScript projects",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"typescript",
+		"caspeco"
+	],
+	"homepage": "https://github.com/Caspeco/eslint-config#readme",
+	"bugs": {
+		"url": "https://github.com/Caspeco/eslint-config/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Caspeco/eslint-config",
+		"directory": "packages/eslint-config-ts"
+	},
+	"license": "MIT",
+	"type": "module",
+	"main": "src/index.js",
+	"bin": {
+		"caspeco-ts-migrate-v5": "./bin/caspeco-ts-migrate-v5.js"
+	},
+	"files": [
+		"src",
+		"bin"
+	],
+	"scripts": {
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@caspeco/test-utils": "*"
+	},
+	"peerDependencies": {
+		"@eslint/js": ">=9",
+		"eslint": ">=9",
+		"eslint-config-prettier": ">=9",
+		"eslint-plugin-check-file": ">=2.8.0",
+		"eslint-plugin-no-barrel-files": ">=1.2.0",
+		"typescript-eslint": ">=8.39.0"
+	},
+	"engines": {
+		"node": ">=24",
+		"npm": ">=11.5.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
