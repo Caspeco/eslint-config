@@ -45,8 +45,6 @@ npm test
 npm run test:ts
 npm run test:react
 
-# Verify dependency versions
-npm run verify-deps
 ```
 
 ## License
