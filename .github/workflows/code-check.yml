@@ -31,11 +31,17 @@ jobs:
       - name: Security audit
         run: npm audit --audit-level=moderate
 
+      - name: Build packages
+        run: npm run build
+
       - name: Tests
         run: npm run ci-test
 
       - name: Check types
         run: npm run tsc
+
+      - name: Check published types
+        run: npm run check:types
 
       - name: Formatting
         run: npm run prettier:check

@@ -16,6 +16,7 @@
 	],
 	"scripts": {
 		"build": "npm run build --workspaces --if-present",
+		"check:types": "npm run check:types --workspaces --if-present",
 		"ci-test": "CI=true npm run test -ws",
 		"docs:preview": "docsify serve docs",
 		"prettier:check": "prettier --check .",
@@ -30,6 +31,7 @@
 	},
 	"prettier": "@caspeco/prettier-config",
 	"devDependencies": {
+		"@arethetypeswrong/cli": "^0.18.2",
 		"@caspeco/prettier-config": "1.0.7",
 		"@types/node": "^24.10.1",
 		"docsify-cli": "^5.0.0-rc.1",

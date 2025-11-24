@@ -31,6 +31,7 @@
 	],
 	"scripts": {
 		"build": "tsc --project tsconfig.build.json",
+		"check:types": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
 		"prepublishOnly": "npm run build",
 		"test": "vitest"
 	},
