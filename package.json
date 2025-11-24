@@ -15,6 +15,7 @@
 		"packages/*"
 	],
 	"scripts": {
+		"build": "npm run build --workspaces --if-present",
 		"ci-test": "CI=true npm run test -ws",
 		"docs:preview": "docsify serve docs",
 		"prettier:check": "prettier --check .",
