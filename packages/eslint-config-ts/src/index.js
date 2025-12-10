@@ -33,7 +33,7 @@ const flatConfig = [
 			"no-barrel-files": noBarrelFilesPlugin,
 		},
 		rules: {
-			"eqeqeq": ["error", "always"],
+			eqeqeq: ["error", "always"],
 			"no-barrel-files/no-barrel-files": "error",
 			"check-file/filename-naming-convention": [
 				"error",
