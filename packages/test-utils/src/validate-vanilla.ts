@@ -27,6 +27,7 @@ export function createVanillaTests(
 					assertHasEslintError(result, "@typescript-eslint/no-unused-vars");
 					assertHasEslintError(result, "@typescript-eslint/no-unsafe-assignment");
 					assertHasEslintError(result, "no-var");
+					assertHasEslintError(result, "eqeqeq");
 				});
 			});
 			describe("check-file plugin", () => {
