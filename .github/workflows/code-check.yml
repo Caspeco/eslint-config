@@ -28,9 +28,6 @@ jobs:
         env:
           GPR_PRIVATE_READ_TOKEN: ${{ secrets.GPR_PRIVATE_READ_TOKEN }}
 
-      - name: Security audit
-        run: npm audit --audit-level=moderate
-
       - name: Build packages
         run: npm run build
 
@@ -48,3 +45,6 @@ jobs:
 
       - name: Verify package.json sort order to avoid unnecessary diffs
         run: npm run verify-package-sort-order
+
+      - name: Security audit
+        run: npm audit --audit-level=moderate
