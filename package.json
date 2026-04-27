@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
-	"version": "5.0.0",
+	"version": "5.2.0",
 	"private": true,
 	"homepage": "https://github.com/Caspeco/eslint-config#readme",
 	"bugs": {
@@ -15,7 +15,7 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "npm run build --workspaces --if-present",
+		"build": "npm run build -w packages/eslint-config-ts && npm run build -w packages/eslint-config-react",
 		"check:types": "npm run check:types --workspaces --if-present",
 		"ci-test": "CI=true npm run test -ws",
 		"docs:preview": "docsify serve docs",
