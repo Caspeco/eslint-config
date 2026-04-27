@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config",
-	"version": "5.0.0",
+	"version": "5.2.0",
 	"private": true,
 	"homepage": "https://github.com/Caspeco/eslint-config#readme",
 	"bugs": {

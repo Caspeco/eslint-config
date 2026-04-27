@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config-ts",
-	"version": "5.0.0",
+	"version": "5.2.0",
 	"description": "Caspeco ESLint configuration for TypeScript projects",
 	"keywords": [
 		"eslint",
