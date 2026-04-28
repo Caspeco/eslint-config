@@ -5,7 +5,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import caspecoReactPlugin from "./plugins/caspeco-react.js";
 import globals from "globals";
 
-/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
+/** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = [
 	// Extend the vanilla TypeScript config
 	...tsConfig,

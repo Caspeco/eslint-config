@@ -4,7 +4,7 @@ import checkFile from "eslint-plugin-check-file";
 import eslintConfigPrettier from "eslint-config-prettier";
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 
-/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
+/** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
