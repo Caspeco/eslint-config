@@ -8,7 +8,7 @@ jobs:
   automerge:
     uses: Caspeco/github-actions/.github/workflows/dependabot-automerge.yml@v2
     with:
-      automerge-level: 'minor'
-      automerge-level-dev: 'minor'
-      merge-method: 'squash'
+      automerge-level: "minor"
+      automerge-level-dev: "minor"
+      merge-method: "squash"
     secrets: inherit
