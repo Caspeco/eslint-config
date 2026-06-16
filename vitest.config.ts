@@ -14,6 +14,9 @@ export default defineConfig({
 			"@/eslint-config-ts": fileURLToPath(
 				new URL("./packages/eslint-config-ts/src/index.js", import.meta.url),
 			),
+			"@/eslint-config-react/compiler": fileURLToPath(
+				new URL("./packages/eslint-config-react/src/compiler.js", import.meta.url),
+			),
 			"@/eslint-config-react": fileURLToPath(
 				new URL("./packages/eslint-config-react/src/index.js", import.meta.url),
 			),

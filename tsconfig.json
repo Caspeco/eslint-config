@@ -25,6 +25,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/eslint-config-ts": ["./packages/eslint-config-ts/src/index.js"],
+			"@/eslint-config-react/compiler": ["./packages/eslint-config-react/src/compiler.js"],
 			"@/eslint-config-react": ["./packages/eslint-config-react/src/index.js"]
 		}
 	},

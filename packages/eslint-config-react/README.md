@@ -32,6 +32,24 @@ import config from "@caspeco/eslint-config-react";
 export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
 ```
 
+### React Compiler (opt-in)
+
+If your project has adopted the [React Compiler](https://react.dev/learn/react-compiler), use the
+`/compiler` entry point instead. It is a drop-in replacement that enables the full
+`eslint-plugin-react-hooks` recommended ruleset, including the React Compiler rules
+(`react-hooks/purity`, `react-hooks/static-components`, `react-hooks/use-memo`,
+`react-hooks/immutability`, `react-hooks/set-state-in-render`, and more):
+
+```js
+import config from "@caspeco/eslint-config-react/compiler";
+
+export default [{ ignores: ["dist/**/*", "build/**/*"] }, ...config];
+```
+
+The default config (`@caspeco/eslint-config-react`) intentionally enables only
+`react-hooks/rules-of-hooks` and `react-hooks/exhaustive-deps`, so teams that have not
+yet adopted the React Compiler are not flooded with compiler-specific warnings.
+
 ## What's Included
 
 This configuration includes everything from our TypeScript config plus React-specific rules:

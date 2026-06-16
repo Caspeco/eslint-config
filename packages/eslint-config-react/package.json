@@ -20,6 +20,17 @@
 	},
 	"license": "MIT",
 	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.js"
+		},
+		"./compiler": {
+			"types": "./dist/compiler.d.ts",
+			"default": "./src/compiler.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"main": "src/index.js",
 	"types": "dist/index.d.ts",
 	"bin": {
@@ -32,7 +43,7 @@
 	],
 	"scripts": {
 		"build": "tsc --project tsconfig.build.json",
-		"check:types": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+		"check:types": "attw --pack . --ignore-rules=cjs-resolves-to-esm --profile node16",
 		"prepublishOnly": "npm run build",
 		"test": "vitest"
 	},
