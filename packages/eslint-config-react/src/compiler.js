@@ -8,7 +8,9 @@ import { createConfig } from "./create-config.js";
 // React Compiler. It is a superset of the default config.
 /** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = createConfig({
-	...reactHooksPlugin.configs.recommended.rules,
+	reactHooksRules: {
+		...reactHooksPlugin.configs.recommended.rules,
+	},
 });
 
 export default flatConfig;

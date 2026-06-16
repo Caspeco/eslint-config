@@ -6,8 +6,10 @@ import { createConfig } from "./create-config.js";
 // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#flat-config-eslintconfigjsts-1
 /** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = createConfig({
-	"react-hooks/rules-of-hooks": "error",
-	"react-hooks/exhaustive-deps": "warn",
+	reactHooksRules: {
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+	},
 });
 
 export default flatConfig;

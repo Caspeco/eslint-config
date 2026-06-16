@@ -9,10 +9,11 @@ import globals from "globals";
  * Builds the Caspeco React flat config. The only part that varies between the
  * default and the React Compiler opt-in config is the set of `react-hooks` rules.
  *
- * @param {import('eslint').Linter.RulesRecord} reactHooksRules
+ * @param {object} options
+ * @param {import('eslint').Linter.RulesRecord} options.reactHooksRules
  * @returns {import('typescript-eslint').ConfigArray}
  */
-export function createConfig(reactHooksRules) {
+export function createConfig({ reactHooksRules }) {
 	return [
 		// Extend the vanilla TypeScript config
 		...tsConfig,
