@@ -22,7 +22,6 @@
 		"noFallthroughCasesInSwitch": true,
 
 		/* Path aliases */
-		"baseUrl": ".",
 		"paths": {
 			"@/eslint-config-ts": ["./packages/eslint-config-ts/src/index.js"],
 			"@/eslint-config-react/compiler": ["./packages/eslint-config-react/src/compiler.js"],
@@ -33,7 +32,7 @@
 		"packages/*/src/**/*.js",
 		"packages/*/__tests__/**/*.ts",
 		"packages/*/__tests__/**/*.tsx",
-		"scripts/verify-versions.ts"
+		"scripts/**/*.ts"
 	],
 	"exclude": ["packages/*/__tests__/fixtures/**/*"]
 }

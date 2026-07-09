@@ -3,11 +3,13 @@ import js from "@eslint/js";
 import checkFile from "eslint-plugin-check-file";
 import eslintConfigPrettier from "eslint-config-prettier";
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
+import baselineJs from "eslint-plugin-baseline-js";
 
 /** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
+	{ ...baselineJs.configs["recommended-ts"]({ available: "widely", level: "warn" }) },
 	{
 		languageOptions: {
 			parserOptions: {
@@ -31,6 +33,7 @@ const flatConfig = [
 			"@typescript-eslint": plugin,
 			"check-file": checkFile,
 			"no-barrel-files": noBarrelFilesPlugin,
+			"baseline-js": baselineJs,
 		},
 		rules: {
 			eqeqeq: ["error", "always"],
