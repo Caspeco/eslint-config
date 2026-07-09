@@ -5,11 +5,22 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 import baselineJs from "eslint-plugin-baseline-js";
 
+const baselineRecommendedTs = baselineJs.configs["recommended-ts"]({
+	available: "widely",
+	level: "warn",
+});
+
 /** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
-	{ ...baselineJs.configs["recommended-ts"]({ available: "widely", level: "warn" }) },
+	{
+		files: [...baselineRecommendedTs.files],
+		plugins: { "baseline-js": baselineJs },
+		rules: /** @type {import('typescript-eslint').ConfigArray[number]['rules']} */ (
+			baselineRecommendedTs.rules
+		),
+	},
 	{
 		languageOptions: {
 			parserOptions: {
@@ -33,7 +44,6 @@ const flatConfig = [
 			"@typescript-eslint": plugin,
 			"check-file": checkFile,
 			"no-barrel-files": noBarrelFilesPlugin,
-			"baseline-js": baselineJs,
 		},
 		rules: {
 			eqeqeq: ["error", "always"],
