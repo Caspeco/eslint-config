@@ -46,6 +46,14 @@ More information:
 
 - [Please Stop Using Barrel Files](https://tkdodo.eu/blog/please-stop-using-barrel-files)
 
+### eslint-plugin-baseline-js
+
+[eslint-plugin-baseline-js](https://github.com/3ru/eslint-plugin-baseline-js)
+
+Using the type-aware `recommended-ts` preset with the `use-baseline` rule configured to warn on JavaScript/Web Platform features that are not yet Baseline **widely available**.
+
+_Scope: applies to `.ts`/`.tsx` files only; generated and declaration files (`**/*.d.ts`, `**/dist/**/*`, `**/node_modules/**/*`) are excluded._
+
 ### eslint-plugin-check-file
 
 [eslint-plugin-check-file](https://github.com/dukeluo/eslint-plugin-check-file/)
