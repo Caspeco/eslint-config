@@ -14,15 +14,6 @@ const baselineRecommendedTs = baselineJs.configs["recommended-ts"]({
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
-	{ plugins: { "baseline-js": baselineJs } },
-	{
-		...baselineRecommendedTs,
-		files: ["**/*.ts", "**/*.tsx"],
-		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
-		rules: /** @type {import('typescript-eslint').ConfigArray[number]['rules']} */ (
-			baselineRecommendedTs.rules
-		),
-	},
 	{
 		languageOptions: {
 			parserOptions: {
@@ -41,10 +32,14 @@ const flatConfig = [
 			sourceType: "module",
 		},
 		plugins: {
+			"baseline-js": baselineJs,
 			"check-file": checkFile,
 			"no-barrel-files": noBarrelFilesPlugin,
 		},
 		rules: {
+			.../** @type {import('typescript-eslint').ConfigArray[number]['rules']} */ (
+				baselineRecommendedTs.rules
+			),
 			eqeqeq: ["error", "always"],
 			"no-barrel-files/no-barrel-files": "error",
 			"check-file/filename-naming-convention": [

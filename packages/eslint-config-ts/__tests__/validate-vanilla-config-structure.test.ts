@@ -65,7 +65,7 @@ describe("validate vanilla config structure", () => {
 	});
 
 	describe("plugin registration", () => {
-		it("should register check-file and no-barrel-files plugins only once", () => {
+		it("should register each plugin exactly once", () => {
 			const pluginCounts = new Map<string, number>();
 
 			flatConfigArray.forEach((config) => {
@@ -76,10 +76,15 @@ describe("validate vanilla config structure", () => {
 				}
 			});
 
-			// These plugins should be registered exactly once
+			// The plugins we register ourselves should be present
 			expect(pluginCounts.get("check-file")).toBe(1);
 			expect(pluginCounts.get("no-barrel-files")).toBe(1);
 			expect(pluginCounts.get("baseline-js")).toBe(1);
+
+			// No plugin (ours or from an extended preset) should be registered twice
+			pluginCounts.forEach((count, plugin) => {
+				expect(count, `Plugin "${plugin}" is registered ${count} times`).toBe(1);
+			});
 		});
 	});
 });

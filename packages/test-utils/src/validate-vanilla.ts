@@ -31,11 +31,12 @@ export function createVanillaTests(
 				});
 			});
 			describe("declaration files", () => {
-				// Regression test: *.d.ts files match rule-only config objects (e.g.
-				// the baseline-js recommended-ts config) while being excluded via
-				// `ignores` from the config object that registers other plugins.
-				// ESLint throws 'Could not find plugin ...' if a rule applies to a
-				// file where its plugin is not registered.
+				// Regression test for the v5.4.0 crash: *.d.ts files matched a
+				// rule-only config object (the baseline-js recommended-ts preset,
+				// which has no `ignores`) while being excluded via `ignores` from
+				// the config object that registered the plugin. ESLint throws
+				// 'Could not find plugin ...' if a rule applies to a file where
+				// its plugin is not registered.
 				it("lints .d.ts files without configuration errors", async () => {
 					const result = await cli.lintFiles("vite-env.d.ts");
 					assert.deepEqual(
