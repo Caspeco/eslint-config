@@ -3,6 +3,7 @@ import eslint from "eslint";
 import compilerConfig from "./fixtures/react-compiler/eslint.config";
 import defaultConfig from "./fixtures/react/eslint.config";
 import { assertHasEslintError } from "@caspeco/test-utils/utils/has-eslint-error";
+import { createVanillaTests, VANILLA_FIXTURES_PATH } from "@caspeco/test-utils";
 
 const PURITY_FIXTURE = "__tests__/fixtures/react-compiler/purity.tsx";
 
@@ -44,3 +45,9 @@ describe("validate react compiler config", () => {
 		});
 	});
 });
+
+// Also run the vanilla tests with the React Compiler config (inherits the vanilla config)
+createVanillaTests(
+	compilerConfig as eslint.Linter.Config<eslint.Linter.RulesRecord>[],
+	VANILLA_FIXTURES_PATH,
+)();

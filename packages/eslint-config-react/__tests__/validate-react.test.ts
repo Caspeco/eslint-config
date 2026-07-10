@@ -2,7 +2,6 @@ import { describe, it } from "vitest";
 import eslint from "eslint";
 import frontendReact from "./fixtures/react/eslint.config";
 import { assertHasEslintError } from "@caspeco/test-utils/utils/has-eslint-error";
-import { createVanillaTests, VANILLA_FIXTURES_PATH } from "@caspeco/test-utils";
 
 describe("validate react config", () => {
 	describe("react-hooks plugin", () => {
@@ -63,9 +62,3 @@ describe("validate react config", () => {
 		});
 	});
 });
-
-// Also run the vanilla tests with the React config (inherits the vanilla config)
-createVanillaTests(
-	frontendReact as eslint.Linter.Config<eslint.Linter.RulesRecord>[],
-	VANILLA_FIXTURES_PATH,
-)();

@@ -1,21 +1,23 @@
-import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
+import { configs as typescriptEslintConfig, parser } from "typescript-eslint";
 import js from "@eslint/js";
 import checkFile from "eslint-plugin-check-file";
 import eslintConfigPrettier from "eslint-config-prettier";
 import noBarrelFilesPlugin from "eslint-plugin-no-barrel-files";
 import baselineJs from "eslint-plugin-baseline-js";
 
+const baselineRecommendedTs = baselineJs.configs["recommended-ts"]({
+	available: "widely",
+	level: "warn",
+});
+
 /** @type {import('typescript-eslint').ConfigArray} */
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
-	{ ...baselineJs.configs["recommended-ts"]({ available: "widely", level: "warn" }) },
 	{
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
-				// @ts-ignore
-				tsconfigRootDir: import.meta.name,
 			},
 		},
 	},
@@ -30,12 +32,14 @@ const flatConfig = [
 			sourceType: "module",
 		},
 		plugins: {
-			"@typescript-eslint": plugin,
+			"baseline-js": baselineJs,
 			"check-file": checkFile,
 			"no-barrel-files": noBarrelFilesPlugin,
-			"baseline-js": baselineJs,
 		},
 		rules: {
+			.../** @type {import('typescript-eslint').ConfigArray[number]['rules']} */ (
+				baselineRecommendedTs.rules
+			),
 			eqeqeq: ["error", "always"],
 			"no-barrel-files/no-barrel-files": "error",
 			"check-file/filename-naming-convention": [

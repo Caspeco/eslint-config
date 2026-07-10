@@ -1,6 +1,6 @@
 {
 	"name": "@caspeco/eslint-config-react",
-	"version": "5.4.0",
+	"version": "5.4.1",
 	"description": "Caspeco ESLint configuration for React projects",
 	"keywords": [
 		"eslint",
@@ -48,7 +48,7 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"@caspeco/eslint-config-ts": "5.4.0"
+		"@caspeco/eslint-config-ts": "5.4.1"
 	},
 	"devDependencies": {
 		"@caspeco/test-utils": "*",
