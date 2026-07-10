@@ -38,7 +38,7 @@ describe("validate react config structure", () => {
 		it("should not have duplicate plugin registrations within React-specific configs", () => {
 			// Only check React-specific configs
 			const reactConfigs = flatConfigArray.filter((config) => {
-				if (!config.files) return false;
+				if (!config.files) return true;
 				const filePatterns = Array.isArray(config.files) ? config.files : [config.files];
 				return filePatterns.some(
 					(pattern) => pattern && (pattern.includes(".tsx") || pattern.includes(".jsx")),
@@ -86,16 +86,25 @@ describe("validate react config structure", () => {
 
 		it("should have all React plugins using consistent flat config pattern", () => {
 			const reactConfigs = flatConfigArray.filter((config) => {
-				if (!config.files) return false;
+				if (!config.files) return true;
 				const filePatterns = Array.isArray(config.files) ? config.files : [config.files];
 				return filePatterns.some(
 					(pattern) => pattern && (pattern.includes(".tsx") || pattern.includes(".jsx")),
 				);
 			});
 
-			// All React configs should have files property for proper scoping
+			// Configs that both register a plugin and apply its rules should be
+			// file-scoped. Plugin-registration-only configs (no `rules`, e.g. the
+			// global typescript-eslint/base and baseline-js registrations) are
+			// exempt — they intentionally apply everywhere so the rule-applying
+			// config elsewhere can reference the plugin regardless of file class.
 			reactConfigs.forEach((config) => {
-				if (config.plugins && Object.keys(config.plugins).length > 0) {
+				if (
+					config.plugins &&
+					Object.keys(config.plugins).length > 0 &&
+					config.rules &&
+					Object.keys(config.rules).length > 0
+				) {
 					expect(config.files).toBeDefined();
 				}
 			});

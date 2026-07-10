@@ -12,9 +12,6 @@ describe("validate vanilla config structure", () => {
 
 			expect(projectServiceConfig).toBeDefined();
 			expect(projectServiceConfig?.languageOptions?.parserOptions?.projectService).toBe(true);
-
-			// tsconfigRootDir uses import.meta.name which might be undefined in test environment
-			expect("tsconfigRootDir" in (projectServiceConfig?.languageOptions?.parserOptions || {})).toBe(true);
 		});
 	});
 
@@ -82,6 +79,7 @@ describe("validate vanilla config structure", () => {
 			// These plugins should be registered exactly once
 			expect(pluginCounts.get("check-file")).toBe(1);
 			expect(pluginCounts.get("no-barrel-files")).toBe(1);
+			expect(pluginCounts.get("baseline-js")).toBe(1);
 		});
 	});
 });

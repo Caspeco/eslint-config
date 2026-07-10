@@ -1,4 +1,4 @@
-import { configs as typescriptEslintConfig, parser, plugin } from "typescript-eslint";
+import { configs as typescriptEslintConfig, parser } from "typescript-eslint";
 import js from "@eslint/js";
 import checkFile from "eslint-plugin-check-file";
 import eslintConfigPrettier from "eslint-config-prettier";
@@ -14,9 +14,11 @@ const baselineRecommendedTs = baselineJs.configs["recommended-ts"]({
 const flatConfig = [
 	js.configs.recommended,
 	...typescriptEslintConfig.recommendedTypeChecked,
+	{ plugins: { "baseline-js": baselineJs } },
 	{
-		files: [...baselineRecommendedTs.files],
-		plugins: { "baseline-js": baselineJs },
+		...baselineRecommendedTs,
+		files: ["**/*.ts", "**/*.tsx"],
+		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
 		rules: /** @type {import('typescript-eslint').ConfigArray[number]['rules']} */ (
 			baselineRecommendedTs.rules
 		),
@@ -25,8 +27,6 @@ const flatConfig = [
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
-				// @ts-ignore
-				tsconfigRootDir: import.meta.name,
 			},
 		},
 	},
@@ -41,7 +41,6 @@ const flatConfig = [
 			sourceType: "module",
 		},
 		plugins: {
-			"@typescript-eslint": plugin,
 			"check-file": checkFile,
 			"no-barrel-files": noBarrelFilesPlugin,
 		},
