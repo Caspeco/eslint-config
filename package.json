@@ -36,7 +36,7 @@
 		"@types/node": "^26.1.1",
 		"docsify-cli": "^5.0.0-rc.4",
 		"sort-package-json": "^4.0.0",
-		"vite": "8.1.4",
+		"vite": "8.1.5",
 		"vitest": "^4.1.10"
 	},
 	"engines": {
