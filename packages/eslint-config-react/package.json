@@ -48,7 +48,7 @@
 		"test": "vitest"
 	},
 	"dependencies": {
-		"@caspeco/eslint-config-ts": "5.4.1"
+		"@caspeco/eslint-config-ts": "5.4.2"
 	},
 	"devDependencies": {
 		"@caspeco/test-utils": "*",
