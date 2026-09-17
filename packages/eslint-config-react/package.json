@@ -45,7 +45,7 @@
 		"build": "tsc --project tsconfig.build.json",
 		"check:types": "attw --pack . --ignore-rules=cjs-resolves-to-esm --profile node16",
 		"prepublishOnly": "npm run build",
-		"test": "vitest"
+		"test": "vitest --config ../../vitest.config.ts"
 	},
 	"dependencies": {
 		"@caspeco/eslint-config-ts": "5.4.1"
