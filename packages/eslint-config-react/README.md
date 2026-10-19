@@ -72,8 +72,7 @@ This configuration includes everything from our TypeScript config plus React-spe
 
 This package requires the following peer dependencies (automatically installed by npm 7+):
 
-- `eslint`
-- `eslint-plugin-react`
+- `eslint` (9 or 10)
 - `eslint-plugin-react-hooks`
 - `eslint-plugin-react-refresh`
 - `globals`
@@ -81,6 +80,16 @@ This package requires the following peer dependencies (automatically installed b
 See [package.json](./package.json) for specific version requirements.
 
 **Note:** Additional TypeScript-related peer dependencies are inherited from `@caspeco/eslint-config-ts` (installed automatically as a regular dependency).
+
+`eslint-plugin-react` is a regular dependency, not a peer. It has no release that supports ESLint 10 yet, so this package patches it with `fixupRule` from `@eslint/compat`.
+
+### ESLint 10
+
+- Remove `eslint-plugin-react` from your own `package.json`, or npm fails with `ERESOLVE`.
+- npm prints `npm warn ERESOLVE overriding peer dependency` for `eslint-plugin-react`. The install succeeds and linting works.
+- Installs with strict peer dependencies (e.g. pnpm `strict-peer-dependencies`) fail until `eslint-plugin-react` supports ESLint 10.
+- Use `@eslint/js` 10 with ESLint 10. Its `recommended` adds `no-useless-assignment`, `no-unassigned-vars` and `preserve-caught-error`.
+- On ESLint 9, keep `@eslint/js` on `^9`. A fresh install without a lockfile otherwise picks `@eslint/js` 10.
 
 ## Plugins
 

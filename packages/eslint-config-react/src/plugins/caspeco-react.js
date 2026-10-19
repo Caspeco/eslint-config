@@ -13,7 +13,6 @@ const caspeco = {
 				docs: {
 					description:
 						'Discourage importing anything from "@chakra-ui/*". Use imports from "@caspeco/casper-ui-library" instead.',
-					category: "Best Practices",
 					url: "https://caspeco.github.io/eslint-config/#/plugins/caspeco?id=caspecodiscourage-chakra-import",
 					recommended: false,
 				},
