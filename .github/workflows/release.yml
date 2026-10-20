@@ -4,6 +4,7 @@ on:
   release:
     types:
       - released
+      - prereleased
 
 jobs:
   publish-npm:
@@ -37,7 +38,7 @@ jobs:
         run: npm run build --workspaces --if-present
 
       - name: Publish all packages to npm with trusted publishing
-        run: npm --ignore-scripts publish -ws --access public --provenance
+        run: npm --ignore-scripts publish -ws --access public --provenance --tag ${{ github.event.release.prerelease && 'next' || 'latest' }}
 
   notify:
     name: Notify

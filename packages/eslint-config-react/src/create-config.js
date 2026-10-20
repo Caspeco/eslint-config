@@ -1,9 +1,19 @@
+import { fixupRule } from "@eslint/compat";
 import tsConfig from "@caspeco/eslint-config-ts";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import caspecoReactPlugin from "./plugins/caspeco-react.js";
 import globals from "globals";
+
+// eslint-plugin-react calls rule context and SourceCode methods that ESLint 10
+// removed. Patched in place rather than with `fixupPluginRules`, which returns
+// a copy: `configs.flat.recommended` registers the original object, and two
+// different objects under "react" fail with `Cannot redefine plugin "react"`.
+const reactRules = /** @type {Record<string, any>} */ (reactPlugin.rules);
+for (const [name, rule] of Object.entries(reactRules)) {
+	reactRules[name] = fixupRule(rule);
+}
 
 /**
  * Builds the Caspeco React flat config. The only part that varies between the

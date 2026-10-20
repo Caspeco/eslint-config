@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import reactPlugin from "eslint-plugin-react";
 import frontendReact from "@/eslint-config-react";
 
 describe("validate react config structure", () => {
@@ -60,6 +61,12 @@ describe("validate react config structure", () => {
 			pluginCounts.forEach((count, plugin) => {
 				expect(count, `Plugin "${plugin}" is registered ${count} times in React configs`).toBe(1);
 			});
+		});
+
+		it("should register the eslint-plugin-react object consumers import", () => {
+			const reactConfig = flatConfigArray.find((config) => config.plugins?.react);
+
+			expect(reactConfig?.plugins?.react).toBe(reactPlugin);
 		});
 	});
 
