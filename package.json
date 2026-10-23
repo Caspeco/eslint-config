@@ -41,9 +41,9 @@
 		"@types/node": "^26.6.5",
 		"docsify-cli": "^5.0.0",
 		"eslint": "^10.13.0",
-		"sort-package-json": "^4.0.0",
+		"sort-package-json": "^4.1.0",
 		"vite": "8.3.4",
-		"vitest": "^5.0.4"
+		"vitest": "^5.0.5"
 	},
 	"engines": {
 		"node": ">=24",
