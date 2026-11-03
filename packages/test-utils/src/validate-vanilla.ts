@@ -65,6 +65,43 @@ export function createVanillaTests(
 				});
 			});
 
+			describe("AI slop rules", () => {
+				const rules = {
+					"caspeco-ts/no-chained-type-assertions": 3,
+					"caspeco-ts/no-reduce-accumulator-copy": 4,
+					// The two angle-bracket assertions also break `assertionStyle: "as"`.
+					"@typescript-eslint/consistent-type-assertions": 3,
+					"@typescript-eslint/switch-exhaustiveness-check": 1,
+				};
+				const countByRule = (result: eslint.ESLint.LintResult[]) => {
+					const counts: Record<string, number> = {};
+					for (const { ruleId } of result.flatMap((file) => file.messages)) {
+						if (ruleId && ruleId in rules) {
+							counts[ruleId] = (counts[ruleId] ?? 0) + 1;
+						}
+					}
+					return counts;
+				};
+
+				it("reports each slop pattern", async () => {
+					const result = await cli.lintFiles("ai-slop.ts");
+					assert.deepEqual(countByRule(result), rules);
+				});
+
+				it("allows the idiomatic alternatives", async () => {
+					const result = await cli.lintFiles("ai-slop-valid.ts");
+					assert.deepEqual(
+						result.flatMap((file) => file.messages),
+						[],
+					);
+				});
+
+				it("allows chained type assertions in test files", async () => {
+					const result = await cli.lintFiles("ai-slop.test.ts");
+					assert.deepEqual(countByRule(result), { "@typescript-eslint/consistent-type-assertions": 1 });
+				});
+			});
+
 			describe("no-barrel-files plugin", () => {
 				it("validates no-barrel-files/no-barrel-files", async () => {
 					const result = await cli.lintFiles("frontend.ts");
