@@ -68,10 +68,13 @@ export function createVanillaTests(
 			describe("AI slop rules", () => {
 				const rules = {
 					"caspeco-ts/no-chained-type-assertions": 3,
-					"caspeco-ts/no-reduce-accumulator-copy": 4,
+					"caspeco-ts/no-reduce-accumulator-copy": 6,
 					// The two angle-bracket assertions also break `assertionStyle: "as"`.
 					"@typescript-eslint/consistent-type-assertions": 3,
 					"@typescript-eslint/switch-exhaustiveness-check": 1,
+					"@typescript-eslint/no-misused-spread": 1,
+					"@typescript-eslint/require-array-sort-compare": 1,
+					"@typescript-eslint/return-await": 1,
 				};
 				const countByRule = (result: eslint.ESLint.LintResult[]) => {
 					const counts: Record<string, number> = {};
@@ -99,6 +102,17 @@ export function createVanillaTests(
 				it("allows chained type assertions in test files", async () => {
 					const result = await cli.lintFiles("ai-slop.test.ts");
 					assert.deepEqual(countByRule(result), { "@typescript-eslint/consistent-type-assertions": 1 });
+				});
+			});
+
+			describe("linter options", () => {
+				it("reports unused disable directives as errors", async () => {
+					const result = await cli.lintFiles("unused-disable.ts");
+					const messages = result.flatMap((file) => file.messages);
+					assert.deepEqual(
+						messages.map(({ ruleId, severity }) => ({ ruleId, severity })),
+						[{ ruleId: null, severity: 2 }],
+					);
 				});
 			});
 

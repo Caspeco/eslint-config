@@ -25,7 +25,7 @@ _Off in test files (`**/*.test.{ts,tsx}`, `**/*.spec.{ts,tsx}`, `**/__tests__/**
 
 ### `caspeco-ts/no-reduce-accumulator-copy`
 
-Disallows returning a copy of the accumulator from a `reduce` / `reduceRight` callback: `{ ...acc }`, `[...acc]`, `acc.concat()`, `acc.slice()` or `Object.assign({}, acc)`, also inside a ternary or `&&` / `||`. `concat` and `slice` are only reported when the accumulator is an array, so `string.concat` is fine.
+Disallows returning a copy of the accumulator from a `reduce` / `reduceRight` callback: `{ ...acc }`, `[...acc]`, `Object.assign({}, acc)`, `Array.from(acc)` or an array copy method (`concat`, `slice`, `toSorted`, `toReversed`, `toSpliced`, `with`), also inside a ternary or `&&` / `||`. Copy methods are only reported when the accumulator is an array, so `string.concat` is fine.
 
 ```ts
 // ❌ copies the whole object on every step: O(n²)

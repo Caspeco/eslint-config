@@ -36,7 +36,7 @@ const flatConfig = [
 		files: ["**/*.ts", "**/*.tsx"],
 		ignores: ["**/*.d.ts", "**/dist/**/*", "**/node_modules/**/*"],
 		linterOptions: {
-			reportUnusedDisableDirectives: "warn",
+			reportUnusedDisableDirectives: "error",
 		},
 		languageOptions: {
 			parser: parser,
@@ -56,6 +56,9 @@ const flatConfig = [
 					objectLiteralTypeAssertions: "never",
 				},
 			],
+			"@typescript-eslint/no-misused-spread": "error",
+			"@typescript-eslint/require-array-sort-compare": "error",
+			"@typescript-eslint/return-await": ["error", "error-handling-correctness-only"],
 			"@typescript-eslint/switch-exhaustiveness-check": [
 				"error",
 				{

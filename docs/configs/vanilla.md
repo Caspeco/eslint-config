@@ -38,6 +38,11 @@ Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#rec
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`consistent-type-assertions`](https://typescript-eslint.io/rules/consistent-type-assertions/) with `objectLiteralTypeAssertions: "never"` | error | `{ ... } as Foo`, which hides missing or misspelled properties. Use a type annotation, a type argument (`useState<Foo>({})`) or `satisfies` |
 | [`switch-exhaustiveness-check`](https://typescript-eslint.io/rules/switch-exhaustiveness-check/)                                           | error | Switches over a union that miss a case and have no `default`                                                                                |
+| [`no-misused-spread`](https://typescript-eslint.io/rules/no-misused-spread/)                                                               | error | Spreading a string, Promise, function or class instance, which drops or garbles data                                                        |
+| [`require-array-sort-compare`](https://typescript-eslint.io/rules/require-array-sort-compare/)                                             | error | `.sort()` without a comparator on non-string arrays: `[10, 2].sort()` gives `[10, 2]`                                                       |
+| [`return-await`](https://typescript-eslint.io/rules/return-await/) with `error-handling-correctness-only`                                  | error | `return promise` inside `try`/`catch`/`finally`, where a rejection skips the `catch`                                                        |
+
+Unused `eslint-disable` comments are errors (`reportUnusedDisableDirectives: "error"`). `eslint --fix` removes them.
 
 #### Opt-in: `no-unnecessary-condition`
 

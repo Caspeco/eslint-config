@@ -116,6 +116,8 @@ const noChainedTypeAssertions = createRule({
 	},
 });
 
+const ARRAY_COPY_METHODS = ["concat", "slice", "toReversed", "toSorted", "toSpliced", "with"];
+
 const noReduceAccumulatorCopy = createRule({
 	name: "no-reduce-accumulator-copy",
 	meta: {
@@ -169,13 +171,16 @@ const noReduceAccumulatorCopy = createRule({
 						(element) => element?.type === AST_NODE_TYPES.SpreadElement && isAccumulator(element.argument),
 					);
 				case AST_NODE_TYPES.CallExpression:
-					if (isMethodCallOn(node, accumulator.name, ["concat", "slice"])) {
+					if (isMethodCallOn(node, accumulator.name, ARRAY_COPY_METHODS)) {
 						// Only arrays: `string.concat` and persistent collections are cheap.
 						return isArrayAccumulator(accumulator);
 					}
 					if (isMethodCallOn(node, "Object", ["assign"])) {
 						const [target, ...sources] = node.arguments;
 						return target?.type === AST_NODE_TYPES.ObjectExpression && sources.some(isAccumulator);
+					}
+					if (isMethodCallOn(node, "Array", ["from"])) {
+						return node.arguments[0] !== undefined && isAccumulator(node.arguments[0]);
 					}
 					return false;
 				default:

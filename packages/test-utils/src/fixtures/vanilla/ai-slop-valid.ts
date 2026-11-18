@@ -31,3 +31,18 @@ export function describe(letter: Letter): string {
 }
 
 export const optional = input?.a;
+
+export const letters = Array.from("abc");
+export const numbers = [10, 2, 1].sort((a, b) => a - b);
+export const names = ["b", "a"].sort();
+
+export async function load(fetchFoo: () => Promise<Foo>): Promise<Foo | undefined> {
+	try {
+		return await fetchFoo();
+	} catch {
+		return undefined;
+	}
+}
+export async function loadDirect(fetchFoo: () => Promise<Foo>): Promise<Foo> {
+	return fetchFoo();
+}
