@@ -35,6 +35,9 @@
 		"prepublishOnly": "npm run build",
 		"test": "vitest --config ../../vitest.config.ts"
 	},
+	"dependencies": {
+		"@typescript-eslint/utils": "^8.57.2"
+	},
 	"devDependencies": {
 		"@caspeco/test-utils": "*",
 		"@eslint/js": "^10.0.1",

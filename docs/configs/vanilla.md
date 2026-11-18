@@ -32,7 +32,29 @@ For implementation details, see [index.js](https://github.com/Caspeco/eslint-con
 
 ### typescript-eslint
 
-Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#recommended-type-checked) config.
+Using [recommended-type-checked](https://typescript-eslint.io/users/configs/#recommended-type-checked) config, plus:
+
+| Rule                                                                                                                                       | Level | Catches                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`consistent-type-assertions`](https://typescript-eslint.io/rules/consistent-type-assertions/) with `objectLiteralTypeAssertions: "never"` | error | `{ ... } as Foo`, which hides missing or misspelled properties. Use a type annotation, a type argument (`useState<Foo>({})`) or `satisfies` |
+| [`switch-exhaustiveness-check`](https://typescript-eslint.io/rules/switch-exhaustiveness-check/)                                           | error | Switches over a union that miss a case and have no `default`                                                                                |
+| [`no-misused-spread`](https://typescript-eslint.io/rules/no-misused-spread/)                                                               | error | Spreading a string, Promise, function or class instance, which drops or garbles data                                                        |
+| [`require-array-sort-compare`](https://typescript-eslint.io/rules/require-array-sort-compare/)                                             | error | `.sort()` without a comparator on non-string arrays: `[10, 2].sort()` gives `[10, 2]`                                                       |
+| [`return-await`](https://typescript-eslint.io/rules/return-await/) with `error-handling-correctness-only`                                  | error | `return promise` inside `try`/`catch`/`finally`, where a rejection skips the `catch`                                                        |
+
+Unused `eslint-disable` comments are errors (`reportUnusedDisableDirectives: "error"`). `eslint --fix` removes them.
+
+#### Opt-in: `no-unnecessary-condition`
+
+[`@typescript-eslint/no-unnecessary-condition`](https://typescript-eslint.io/rules/no-unnecessary-condition/) catches defensive `?.`, `??` and checks on values that can't be nullish. It's not in the shared config: it is only as good as the types, and in codebases with loose or cast API types the "unnecessary" check is often the only runtime guard. Enable it in strict, well-typed repos (needs `strictNullChecks`):
+
+```js
+export default [...config, { rules: { "@typescript-eslint/no-unnecessary-condition": "error" } }];
+```
+
+### Caspeco TS plugin
+
+Local rules for patterns common in AI-generated code: `caspeco-ts/no-chained-type-assertions` and `caspeco-ts/no-reduce-accumulator-copy`. See [Caspeco TS](/plugins/caspeco-ts.md).
 
 ### eslint-plugin-no-barrel-files
 

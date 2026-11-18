@@ -80,6 +80,7 @@ describe("validate vanilla config structure", () => {
 			expect(pluginCounts.get("check-file")).toBe(1);
 			expect(pluginCounts.get("no-barrel-files")).toBe(1);
 			expect(pluginCounts.get("baseline-js")).toBe(1);
+			expect(pluginCounts.get("caspeco-ts")).toBe(1);
 
 			// No plugin (ours or from an extended preset) should be registered twice
 			pluginCounts.forEach((count, plugin) => {
